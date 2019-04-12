@@ -70,23 +70,23 @@
             return (resultado % 7);
         }
 
-        function mod(x, y){
+        function mod(x, y) {
             var s = null;
-            if(y <= 0 || x < 0){
+            if (y <= 0 || x < 0) {
                 s = x;
             }
 
-            while(y <= s){
+            while (y <= s) {
                 s = s - y;
             }
 
             return s;
         }
 
-        function somaNaturais(numero){
+        function somaNaturais(numero) {
             var i;
             var s = null;
-            if(i <= 1){
+            if (i <= 1) {
                 s = s + i;
                 i = i + 1;
             }
@@ -94,16 +94,16 @@
             return s;
         }
 
-        function Fatorial(numero){
+        function Fatorial(numero) {
             var i;
             var f;
-            
-            if(numero >= 1){
+
+            if (numero >= 1) {
                 i = 2;
                 f = 1;
             }
 
-            while(i <= numero){
+            while (i <= numero) {
                 f = f * i;
                 i = i + 1;
             }
@@ -111,15 +111,15 @@
             return f;
         }
 
-        function Produto(a, b){
+        function Produto(a, b) {
             var totalParcelas;
             var parcela;
-            if(a >= 0 || b >= 0){
+            if (a >= 0 || b >= 0) {
                 totalParcelas = a;
                 parcela = b;
             }
 
-            if(b < a){
+            if (b < a) {
                 totalParcelas = b;
                 parcela = a;
             }
@@ -127,7 +127,7 @@
             var i = 1;
             var s = 0;
 
-            while(i <= totalParcelas){
+            while (i <= totalParcelas) {
                 s = s + parcela;
                 i = i + 1;
             }
@@ -136,14 +136,14 @@
             return s;
         }
 
-        function Potencia(x, y){
+        function Potencia(x, y) {
             var potencia, i;
-            if(x >= 0 && y >= 0){
+            if (x >= 0 && y >= 0) {
                 potencia = 1;
                 i = 1;
             }
 
-            while(i <= y){
+            while (i <= y) {
                 potencia = Produto(potencia, x);
                 i = i + 1;
             }
@@ -151,16 +151,16 @@
             return potencia;
         }
 
-        function Pi(numero){
+        function Pi(numero) {
             var i, s, d, p;
-            if(numero >= 1){
+            if (numero >= 1) {
                 i = 1;
                 s = -1;
                 d = -1;
                 p = 0;
             }
 
-            while(i <= numero){
+            while (i <= numero) {
                 d = d + 2;
                 s = -1 * s;
                 p = p + 4 * s / d;
@@ -168,6 +168,96 @@
             }
 
             return p;
+        }
+
+        function logaritmoNatural(numero, k) {
+
+            var i, e, denominador, numerador;
+            if (n <= 1 || k >= 2) {
+                i = 2;
+                e = 1 + numero;
+                numerador = numero;
+                denominador = 1;
+
+                while (i <= k) {
+                    numerador = numerador * numerador;
+                    denominador = denominador * 1;
+                    e = e + numerador / denominador;
+                    i = i + 1;
+                }
+            }
+
+            return e;
+        }
+
+        function RazaoAurea(x, y, k) {
+            var c, a, i, t;
+            if (x >= 0 && x < y && k > 0) {
+                c = y;
+                a = x;
+                i = 1;
+
+                while (i <= k) {
+                    t = c;
+                    c = c + a;
+                    a = t;
+                    i = i + 1;
+
+                }
+            }
+
+            return (c / a);
+        }
+
+        function QuadradoPerfeito(numero){
+            
+            var i, s;
+            if(n >= 1){
+                i = 1;
+                s = 1;
+
+                while(s < numero){
+                    i = i + 2;
+                    s = s + 1;
+                }
+            }
+            
+            return s = numero;
+        }
+
+        function Raiz(numero, i){
+            var raiz;
+            if(numero > 0){
+                raiz = 1;
+
+                while(0 <= i){
+                    raiz = (raiz + numero / raiz) / 2;
+                    i = i - 1;
+                }
+            }
+
+            return raiz;
+        }
+
+        function Primo(numero){
+            var i;
+            if(numero > 1){
+                i = 2;
+
+                while(1 < numero){
+                    if(numero%i == 0){
+                        return false;
+                    }
+                    i = i + 1;
+                }
+            }
+
+            return verdadeiro;
+        }
+
+        function CrivoEratostenes(a, numero){
+            if(n > 1 
+            && a[i])
         }
 
         window.onload = function () {
