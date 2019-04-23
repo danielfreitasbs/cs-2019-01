@@ -5,7 +5,7 @@ function propriedade3025(numero) {
         primeiraDezena = Math.floor(numero / 100);
         segundaDezena = numero % 100;
 
-        total = (primeiraDezena + segundaDezena);
+        total = primeiraDezena + segundaDezena;
         total = Math.pow(total, 2.0);
 
         if (total == numero)
