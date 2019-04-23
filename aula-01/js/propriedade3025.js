@@ -4,9 +4,9 @@ function propriedade3025(numero) {
         const segundaDezena = numero % 100;
 
         const soma = primeiraDezena + segundaDezena;
-        const total = soma * soma;
+        const quadradoDezenas = soma * soma;
 
-        return total == numero;
+        return quadradoDezenas == numero;
     }
     return false;
 }
