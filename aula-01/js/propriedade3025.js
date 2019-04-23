@@ -5,8 +5,8 @@ function propriedade3025(numero) {
         primeiraDezena = Math.floor(numero / 100);
         segundaDezena = numero % 100;
 
-        let total = primeiraDezena + segundaDezena;
-        total = Math.pow(total, 2.0);
+        let soma = primeiraDezena + segundaDezena;
+        let total = Math.pow(soma, 2.0);
 
         return total == numero;
     }
