@@ -8,8 +8,10 @@ function propriedade3025(numero) {
         total = primeiraDezena + segundaDezena;
         total = Math.pow(total, 2.0);
 
-        if (total == numero)
+        if (total == numero) {
             return true;
+        }
+        
         return false;
     }
     return false;
