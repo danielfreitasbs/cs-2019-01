@@ -41,7 +41,7 @@ public class Executante {
         return false;
     }
 
-    public static double diaDaSemana(int dia, int mes, int ano) {
+    public static int diaDaSemana(int dia, int mes, int ano) {
 
         if (dia < 1 || dia > 31) {
             throw new IllegalArgumentException("dia invalido: " + dia);
@@ -69,7 +69,7 @@ public class Executante {
 
         int resultado = dia + (2 * dia) + ((3 * (mes + 1)) / 5) + ano + (ano / 4) + (ano / 100) + (ano / 400);
 
-        return (int) resultado % 7;
+        return resultado % 7;
     }
 
     public static int mod(int x, int y) {
