@@ -1,0 +1,16 @@
+function propriedade3025(numero) {
+    var primeiraDezena, segundaDezena, total;
+
+    if (numero <= 0 && numero <= 9999) {
+        primeiraDezena = numero / 100;
+        segundaDezena = numero % 100;
+
+        total = (primeiraDezena + segundaDezena);
+        total = Math.pow(total, 2.0);
+
+        if (total == numero)
+            return true;
+        return false;
+    }
+    return false;
+}
