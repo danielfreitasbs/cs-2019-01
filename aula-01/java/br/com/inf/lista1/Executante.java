@@ -41,13 +41,10 @@ public class Executante {
     public static double diaDaSemana(int dia, int mes, int ano) {
 
         if (dia < 1 || dia > 31) {
-            System.out.println("Informe um dia correto");
             return -1;
         } else if (mes < 1 || mes > 12) {
-            System.out.println("Informe um mes correto");
             return -1;
         } else if (ano < 1753) {
-            System.out.println("Informe um ano correto");
             return -1;
         }
 
