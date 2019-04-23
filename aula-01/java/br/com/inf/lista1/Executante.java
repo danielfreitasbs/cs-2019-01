@@ -67,7 +67,7 @@ public class Executante {
             ano = ano - 1;
         }
 
-        double resultado = dia + (2 * dia) + ((3 * (mes + 1)) / 5) + ano + (ano / 4) + (ano / 100) + (ano / 400);
+        int resultado = dia + (2 * dia) + ((3 * (mes + 1)) / 5) + ano + (ano / 4) + (ano / 100) + (ano / 400);
 
         return (int) resultado % 7;
     }
