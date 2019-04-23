@@ -1,5 +1,8 @@
 package br.com.inf.lista1;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
+
 public class Executante {
 
     public static boolean propriedade3025(int numero) {
@@ -41,11 +44,22 @@ public class Executante {
     public static double diaDaSemana(int dia, int mes, int ano) {
 
         if (dia < 1 || dia > 31) {
-            return -1;
-        } else if (mes < 1 || mes > 12) {
-            return -1;
-        } else if (ano < 1753) {
-            return -1;
+            throw new IllegalArgumentException("dia invalido: " + dia);
+        }
+
+        if (mes < 1 || mes > 12) {
+            throw new IllegalArgumentException("mes invalido: " + mes);
+        }
+
+        if (ano < 1753) {
+            throw new IllegalArgumentException("ano invalido: " + ano);
+        }
+
+        try {
+            LocalDate.of(ano, mes, dia);
+        } catch (DateTimeException excecao) {
+            final String data = String.format("%d/%d/%d", dia, mes, ano);
+            throw new IllegalArgumentException("data invalida: " + data);
         }
 
         if (mes == 1 || mes == 2) {
