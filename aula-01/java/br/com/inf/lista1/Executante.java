@@ -281,7 +281,6 @@ public static int MDC2(int a, int b) {
 
         return a;
     }
-}
             
 static int horner(int ...arguments){
         int p, i;
@@ -358,7 +357,7 @@ static Boolean cpf2(int[] d){
             throw new Error("Argumento Inválido");
         }
     }
-}
+
 	public static void main(String[] args) {
 
                         }
