@@ -4,7 +4,7 @@ function propriedade3025(numero) {
         const segundaDezena = numero % 100;
 
         const soma = primeiraDezena + segundaDezena;
-        const total = Math.pow(soma, 2.0);
+        const total = soma * soma;
 
         return total == numero;
     }
