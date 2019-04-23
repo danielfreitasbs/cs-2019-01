@@ -41,7 +41,9 @@ public class Executante {
         return false;
     }
 
-    public static int diaDaSemana(int dia, int mes, int ano) {
+    public static int diaDaSemana(final int dia,
+                                  final int mes,
+                                  final int ano) {
 
         if (dia < 1 || dia > 31) {
             throw new IllegalArgumentException("dia invalido: " + dia);
@@ -62,12 +64,13 @@ public class Executante {
             throw new IllegalArgumentException("data invalida: " + data);
         }
 
-        if (mes == 1 || mes == 2) {
-            mes = mes + 12;
-            ano = ano - 1;
-        }
+        final boolean janeiroOuFevereiro = mes == 1 || mes == 2;
+        final int mesAjustado = janeiroOuFevereiro ? mes + 12 : 12;
+        final int anoAjustado = janeiroOuFevereiro ? ano - 1 : ano;
 
-        int resultado = dia + (2 * dia) + ((3 * (mes + 1)) / 5) + ano + (ano / 4) + (ano / 100) + (ano / 400);
+        final int resultado = dia + (2 * dia) + ((3 * (mesAjustado + 1)) / 5)
+                + anoAjustado + (anoAjustado / 4) + (anoAjustado / 100)
+                + (anoAjustado / 400);
 
         return resultado % 7;
     }
