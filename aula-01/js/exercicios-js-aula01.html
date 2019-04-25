@@ -10,24 +10,9 @@
     <body>
         <div id="resultado"></div>
 
+        <script src="propriedade3025.js"></script>
+        
         <script>
-            function propriedade3025(numero) {
-                var primeiraDezena, segundaDezena, total;
-
-                if (numero <= 0 && numero <= 9999) {
-                    primeiraDezena = numero / 100;
-                    segundaDezena = numero % 100;
-
-                    total = (primeiraDezena + segundaDezena);
-                    total = (int) Math.pow(total, 2.0);
-
-                    if (total == numero)
-                        return true;
-                    return false;
-                }
-                return false;
-            }
-
             function propriedade153(numero) {
 
                 var unidade, dezena, centena, total, dezenaUnidade;
@@ -259,7 +244,7 @@
                 if (a.length > 1) {
                     for (var i = 1; i < a.length; i++) {
                         if (a[i] != 0) {
-                            throw "Valor fora do intervalo permitido");
+                            throw "Valor fora do intervalo permitido";
                     }
                 }
 
@@ -290,7 +275,7 @@
                     }
                     return c;
                 }
-                throw "Informe um numero maior que 1;
+                throw "Informe um numero maior que 1";
             }
 
             function MDC(a, b) {
