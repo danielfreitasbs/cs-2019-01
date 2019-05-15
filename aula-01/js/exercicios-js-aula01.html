@@ -1,127 +1,250 @@
-<html lang="en">
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
 
-<body>
-    <div id="resultado"></div>
+    <body>
+        <div id="resultado"></div>
 
-    <script src="propriedade3025.js"></script>
+        <script src="propriedade3025.js"></script>
+        
+        <script>
+            function propriedade153(numero) {
 
-    <script>
-        function Pi(numero) {
-            var i, s, d, p;
-            if (numero >= 1) {
-                i = 1;
-                s = -1;
-                d = -1;
-                p = 0;
+                var unidade, dezena, centena, total, dezenaUnidade;
+
+                if (numero <= 100 && numero <= 999) {
+                    centena = numero / 100;
+                    dezenaUnidade = numero % 100;
+                    dezena = dezenaUnidade / 10;
+                    unidade = dezenaUnidade % 10;
+                    total = (int)((Math.pow(centena, 3)) + (Math.pow(dezena, 3)) + (Math.pow(unidade, 3)));
+
+                    if (total == numero)
+                        return true;
+                    return false;
+                }
+
+                return false;
             }
 
-            while (i <= numero) {
-                d = d + 2;
-                s = -1 * s;
-                p = p + 4 * s / d;
-                i = i + 1;
+            function diaDaSemana(dia, mes, ano) {
+
+                if (dia < 1 || dia > 31) {
+                    alert("Informe um dia correto");
+                    return -1;
+                } else if (mes < 1 || mes > 12) {
+                    alert("Informe um mes correto");
+                    return -1;
+                } else if (ano < 1753) {
+                    alert("Informe um ano correto");
+                    return -1;
+                }
+
+                if (mes == 1 || mes == 2) {
+                    mes = mes + 12;
+                    ano = ano - 1;
+                }
+
+                var resultado = dia + (2 * dia) + ((3 * (mes + 1)) / 5) + ano + (ano / 4) + (ano / 100) + (ano / 400);
+
+                return (resultado % 7);
             }
 
-            return p;
-        }
+            function mod(x, y) {
+                var s = null;
+                if (y <= 0 || x < 0) {
+                    s = x;
+                }
 
-        function logaritmoNatural(numero, k) {
+                while (y <= s) {
+                    s = s - y;
+                }
 
-            var i, e, denominador, numerador;
-            if (n <= 1 || k >= 2) {
-                i = 2;
-                e = 1 + numero;
-                numerador = numero;
-                denominador = 1;
+                return s;
+            }
 
-                while (i <= k) {
-                    numerador = numerador * numerador;
-                    denominador = denominador * 1;
-                    e = e + numerador / denominador;
+            function somaNaturais(numero) {
+                var i;
+                var s = null;
+                if (i <= 1) {
+                    s = s + i;
                     i = i + 1;
                 }
+
+                return s;
             }
 
-            return e;
-        }
+            function Fatorial(numero) {
+                var i;
+                var f;
 
-        function RazaoAurea(x, y, k) {
-            var c, a, i, t;
-            if (x >= 0 && x < y && k > 0) {
-                c = y;
-                a = x;
-                i = 1;
+                if (numero >= 1) {
+                    i = 2;
+                    f = 1;
+                }
 
-                while (i <= k) {
-                    t = c;
-                    c = c + a;
-                    a = t;
+                while (i <= numero) {
+                    f = f * i;
                     i = i + 1;
-
                 }
+
+                return f;
             }
 
-            return (c / a);
-        }
-
-        function QuadradoPerfeito(numero) {
-
-            var i, s;
-            if (n >= 1) {
-                i = 1;
-                s = 1;
-
-                while (s < numero) {
-                    i = i + 2;
-                    s = s + 1;
+            function Produto(a, b) {
+                var totalParcelas;
+                var parcela;
+                if (a >= 0 || b >= 0) {
+                    totalParcelas = a;
+                    parcela = b;
                 }
+
+                if (b < a) {
+                    totalParcelas = b;
+                    parcela = a;
+                }
+
+                var i = 1;
+                var s = 0;
+
+                while (i <= totalParcelas) {
+                    s = s + parcela;
+                    i = i + 1;
+                }
+
+
+                return s;
             }
 
-            return s = numero;
-        }
-
-        function Raiz(numero, i) {
-            var raiz;
-            if (numero > 0) {
-                raiz = 1;
-
-                while (0 <= i) {
-                    raiz = (raiz + numero / raiz) / 2;
-                    i = i - 1;
+            function Potencia(x, y) {
+                var potencia, i;
+                if (x >= 0 && y >= 0) {
+                    potencia = 1;
+                    i = 1;
                 }
+
+                while (i <= y) {
+                    potencia = Produto(potencia, x);
+                    i = i + 1;
+                }
+
+                return potencia;
             }
 
-            return raiz;
-        }
+            function Pi(numero) {
+                var i, s, d, p;
+                if (numero >= 1) {
+                    i = 1;
+                    s = -1;
+                    d = -1;
+                    p = 0;
+                }
 
-        function Primo(numero) {
-            var i;
-            if (numero > 1) {
-                i = 2;
+                while (i <= numero) {
+                    d = d + 2;
+                    s = -1 * s;
+                    p = p + 4 * s / d;
+                    i = i + 1;
+                }
 
-                while (1 < numero) {
-                    if (numero % i == 0) {
-                        return false;
+                return p;
+            }
+
+            function logaritmoNatural(numero, k) {
+
+                var i, e, denominador, numerador;
+                if (n <= 1 || k >= 2) {
+                    i = 2;
+                    e = 1 + numero;
+                    numerador = numero;
+                    denominador = 1;
+
+                    while (i <= k) {
+                        numerador = numerador * numerador;
+                        denominador = denominador * 1;
+                        e = e + numerador / denominador;
+                        i = i + 1;
                     }
-                    i = i + 1;
                 }
+
+                return e;
             }
 
-            return verdadeiro;
-        }
+            function RazaoAurea(x, y, k) {
+                var c, a, i, t;
+                if (x >= 0 && x < y && k > 0) {
+                    c = y;
+                    a = x;
+                    i = 1;
 
-        function crivoEratostenes(a) {
-            if (a.length > 1) {
-                for (var i = 1; i < a.length; i++) {
-                    if (a[i] != 0) {
-                        throw "Valor fora do intervalo permitido";
+                    while (i <= k) {
+                        t = c;
+                        c = c + a;
+                        a = t;
+                        i = i + 1;
+
+                    }
+                }
+
+                return (c / a);
+            }
+
+            function QuadradoPerfeito(numero) {
+
+                var i, s;
+                if (n >= 1) {
+                    i = 1;
+                    s = 1;
+
+                    while (s < numero) {
+                        i = i + 2;
+                        s = s + 1;
+                    }
+                }
+
+                return s = numero;
+            }
+
+            function Raiz(numero, i) {
+                var raiz;
+                if (numero > 0) {
+                    raiz = 1;
+
+                    while (0 <= i) {
+                        raiz = (raiz + numero / raiz) / 2;
+                        i = i - 1;
+                    }
+                }
+
+                return raiz;
+            }
+
+            function Primo(numero) {
+                var i;
+                if (numero > 1) {
+                    i = 2;
+
+                    while (1 < numero) {
+                        if (numero % i == 0) {
+                            return false;
+                        }
+                        i = i + 1;
+                    }
+                }
+
+                return verdadeiro;
+            }
+
+            function crivoEratostenes(a) {
+                if (a.length > 1) {
+                    for (var i = 1; i < a.length; i++) {
+                        if (a[i] != 0) {
+                            throw "Valor fora do intervalo permitido";
                     }
                 }
 
@@ -136,100 +259,100 @@
                 return a;
             }
             throw "Tamanho do Array deve ser maior que 1";
-        }
-
-        function fibonacci(numero) {
-            if (numero >= 0) {
-                var x = 0;
-                var y = 1;
-                if (numero === 0 | numero === 1) {
-                    return numero;
-                }
-                for (var i = 2; i <= numero; i++) {
-                    var t = y;
-                    y += x;
-                    x = t;
-                }
-                return c;
-            }
-            throw "Informe um numero maior que 1";
-        }
-
-        function MDC(a, b) {
-            if (b <= a && 0 < b) {
-                var m;
-                while (b != 0) {
-                    m = (a % b);
-                    a = b;
-                    b = m;
-                }
             }
 
-            return a;
-        }
+            function fibonacci(numero) {
+                if (numero >= 0) {
+                    var x = 0;
+                    var y = 1;
+                    if (numero === 0 | numero === 1) {
+                        return numero;
+                    }
+                    for (var i = 2; i <= numero; i++) {
+                        var t = y;
+                        y += x;
+                        x = t;
+                    }
+                    return c;
+                }
+                throw "Informe um numero maior que 1";
+            }
 
-        function MDC2(a, b) {
-            if (b <= a && 0 < b) {
-                while (a != b) {
-                    if (a > b) {
-                        a = a - b;
-                    } else {
-                        b = b - a;
+            function MDC(a, b) {
+                if (b <= a && 0 < b) {
+                    var m;
+                    while (b != 0) {
+                        m = (a % b);
+                        a = b;
+                        b = m;
                     }
                 }
+
                 return a;
             }
-        }
 
-        function horner(x, vector) {
-            if (vector.length >= 1) {
-                var p = vector[vector.length - 1];
-                for (var i = vector.length - 2; i >= 0; i--) {
-                    p = p * x + vector[i];
+            function MDC2(a, b) {
+                if (b <= a && 0 < b) {
+                    while (a != b) {
+                        if (a > b) {
+                            a = a - b;
+                        } else {
+                            b = b - a;
+                        }
+                    }
+                    return a;
                 }
-                return p;
             }
-            throw "Tamanho do Array deve ser maior que 1";
-        }
 
-        function CPF(arrayCpf) {
-            if (arrayCpf.length != 11) {
-                throw "Argumento inválido, CPF deve ter 11 dígitos";
+            function horner(x, vector) {
+                if (vector.length >= 1) {
+                    var p = vector[vector.length - 1];
+                    for (var i = vector.length - 2; i >= 0; i--) {
+                        p = p * x + vector[i];
+                    }
+                    return p;
+                }
+                throw "Tamanho do Array deve ser maior que 1";
             }
-            var j = parseInt(arrayCpf.charAt(0));
-            var k = parseInt(arrayCpf.charAt(1));
-            for (var i = 1; i < 9; i++) {
-                j += parseInt(arrayCpf.charAt(i)) * (i + 1);
-            }
-            for (var i = 2; i < 10; i++) {
-                k += parseInt(arrayCpf.charAt(i)) * (i + 1);
-            }
-            var dj = (j % 11) % 10;
-            var dk = (k % 11) % 10;
-            if (dj == parseInt(arrayCpf.charAt(9)) && dk == parseInt(arrayCpf.charAt(10))) {
-                return true;
-            }
-            return false;
-        }
 
-        function CPF2(arrayCpf) {
-            if (arrayCpf.length != 11) {
-                throw "Argumento inválido, CPF deve ter 11 dígitos";
+            function CPF(arrayCpf) {
+                if (arrayCpf.length != 11) {
+                    throw "Argumento inválido, CPF deve ter 11 dígitos";
+                }
+                var j = parseInt(arrayCpf.charAt(0));
+                var k = parseInt(arrayCpf.charAt(1));
+                for (var i = 1; i < 9; i++) {
+                    j += parseInt(arrayCpf.charAt(i)) * (i + 1);
+                }
+                for (var i = 2; i < 10; i++) {
+                    k += parseInt(arrayCpf.charAt(i)) * (i + 1);
+                }
+                var dj = (j % 11) % 10;
+                var dk = (k % 11) % 10;
+                if (dj == parseInt(arrayCpf.charAt(9)) && dk == parseInt(arrayCpf.charAt(10))) {
+                    return true;
+                }
+                return false;
             }
-            var p = parseInt(arrayCpf.charAt(8));
-            var s = p;
-            for (var c = 7; c >= 0; c--) {
-                p += parseInt(arrayCpf.charAt(c));
-                s += p;
-            }
-            var j = (s % 11) % 10;
-            var k = ((s - p + 9 * parseInt(arrayCpf.charAt(9))) % 11) % 10;
-            if (j === parseInt(arrayCpf.charAt(9)) && k === parseInt(arrayCpf.charAt(10))) {
-                return true;
-            }
-            return false;
-        }
-    </script>
-</body>
 
-</html>
+            function CPF2(arrayCpf) {
+                if (arrayCpf.length != 11) {
+                    throw "Argumento inválido, CPF deve ter 11 dígitos";
+                }
+                var p = parseInt(arrayCpf.charAt(8));
+                var s = p;
+                for (var c = 7; c >= 0; c--) {
+                    p += parseInt(arrayCpf.charAt(c));
+                    s += p;
+                }
+                var j = (s % 11) % 10;
+                var k = ((s - p + 9 * parseInt(arrayCpf.charAt(9))) % 11) % 10;
+                if (j === parseInt(arrayCpf.charAt(9)) && k === parseInt(arrayCpf.charAt(10))) {
+                    return true;
+                }
+                return false;
+            }
+        </script>
+    </body>
+
+    </html>

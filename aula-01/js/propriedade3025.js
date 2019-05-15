@@ -1,5 +1,4 @@
 function propriedade3025(numero) {
-
     if (isNaN(numero)) {
         throw new TypeError("forneca um numero: " + numero);
     }
@@ -15,5 +14,4 @@ function propriedade3025(numero) {
     const quadradoDezenas = soma * soma;
 
     return quadradoDezenas == numero;
-
 }
