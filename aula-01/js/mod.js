@@ -15,3 +15,5 @@ function mod(dividendo, divisor) {
 
     return s;
 }
+
+export { mod };
