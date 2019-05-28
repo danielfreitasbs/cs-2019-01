@@ -1,23 +1,35 @@
-function logaritmoNatural(numero, k) {
+/**
+ * Produz a divisão de a por b.
+ * 
+ * @param {number} numero Numero que deseja descobrir a base logaritmica.
+ * @param {number} termosPrecisao quantidade de termos que de precisao.
+ * 
+ * @returns {number} valor aproximado da potencia de euler baseado nos termos de precisao.
+ * 
+ * @throws {TypeError} Se qualquer um dos argumentos não for um número.
+ */
 
-    if (isNaN(numero) || isNaN(k)) {
-        throw new TypeError("Valores atribuidos incorretamente. \nValores informados: \nnumero: " + numero + " \nrepeticoes: " + k);
+function logaritmoNatural(numero, termosPrecisao) {
+
+    if (isNaN(numero) || isNaN(termosPrecisao)) {
+        throw new TypeError("Valores atribuidos incorretamente. \nValores informados: \nnumero: " + numero + " \nrepeticoes: " + termosPrecisao);
     }
 
-    var i, e, denominador, numerador;
-    if (n <= 1 || k >= 2) {
-        i = 2;
-        e = 1 + numero;
+    let iteradorAuxiliar, numeroEuler, denominador, numerador;
+
+    if (n <= 1 || termosPrecisao >= 2) {
+        iteradorAuxiliar = 2;
+        numeroEuler = 1 + numero;
         numerador = numero;
         denominador = 1;
 
-        while (i <= k) {
+        while (iteradorAuxiliar <= termosPrecisao) {
             numerador = numerador * numerador;
             denominador = denominador * 1;
-            e = e + numerador / denominador;
-            i = i + 1;
+            numeroEuler = numeroEuler + numerador / denominador;
+            iteradorAuxiliar = iteradorAuxiliar + 1;
         }
     }
 
-    return e;
+    return numeroEuler;
 }

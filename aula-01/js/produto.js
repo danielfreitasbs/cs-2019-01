@@ -1,3 +1,15 @@
+/**
+ * Produz o produto(multiplicacao) entre dois fatores.
+ * 
+ * @param {number} primeroFator numero que será somado a si mesmo pela quantidade de vezes determinada pelo segundo fator.
+ * @param {number} segundoFator numero de vezes que o primeiroFator será adicionado a si mesmo.
+ * 
+ * @returns {number} Soma da quantidade de vezes que o primeiroFator foi adicionado a si mesmo, mediante quantidade de iteracoes determinada pelo valor do segundoFator
+ * 
+ * @throws {TypeError} Se qualquer um dos argumentos não for um número.
+ * @throws {RangeError} para se calcular o produto os dois fatores devem ser maiores que zero. Caso sejam zero, o produto sempre será zero.
+ */
+
 function Produto(primeroFator, segundoFator) {
 
     if (isNaN(primeroFator) || isNaN(segundoFator)) {
