@@ -1,3 +1,15 @@
+/**
+ * Avalia se CPF fornecido é válido dado seus dígitos verificados
+ * (dois últimos dígitos)
+ *
+ * @param {String} arrayCPF String que contém CPF
+ *
+ * @returns {boolean} Verdadeiro, se dígitos verificadores do CPF estiverem
+ * corretos, Falso, se não
+ *
+ * @throws {RangeError} Se cpf tem mais que 11 caracteres
+ * @throws {TypeError} Se cpf é null ou undefined
+ */
 function validarDigitosCPF(arrayCPF) {
     if (arrayCPF === null || arrayCPF === undefined) {
         throw new TypeError("Argumento null ou undefined");

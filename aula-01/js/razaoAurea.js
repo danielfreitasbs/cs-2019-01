@@ -1,3 +1,19 @@
+/**
+ * Produz a razão áurea considerando dois números inteiros positivos
+ *
+ * @param {number} primeiroInteiro O primero inteiro a ser considerado
+ * @param {number} segundoInteiro O segundo inteiro a ser considerado
+ * @param {number} grauDePrecisao A precisão desejada do resultado retornado, quanto
+ * maior o valor, maior a precisão
+ *
+ * @returns {number} A razão áurea de acordo com a precisão informada
+ *
+ * @throws {TypeError} Se parâmetros forem nulo e/ou indefinido(undefined)
+ * @throws {TypeError} Se parâmetros não forem inteiros
+ * @throws {RangeError} Se o primeiroInteiro for menor que 0 ou maior/igual ao segundoInteiro
+ * ou se a precisão é menor ou igual a 0
+ */
+
 function razaoAurea(primeiroInteiro, segundoInteiro, grauDePrecisao) {
 
     if (Number.isNaN(primeiroInteiro) || Number.isNaN(segundoInteiro) || Number.isNaN(grauDePrecisao)) {
@@ -25,5 +41,3 @@ function razaoAurea(primeiroInteiro, segundoInteiro, grauDePrecisao) {
 }
 
 module.exports = razaoAurea;
-
-console.log(razaoAurea(1, 2, 1000))

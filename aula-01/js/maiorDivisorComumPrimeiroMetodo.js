@@ -1,5 +1,21 @@
 import { mod } from mod;
 
+/**
+ * Encontra o maior divisor comum entre primeiroValor e segundoValor, com o uso do calculo de resto.
+ * 
+ * @param {number} primeiroValor numero que fará par para encontrar o maior divisor comum.
+ * @param {number} segundoValor numero que fará par para encontrar o maior divisor comum.
+ * 
+ * @returns {number} maior divisor comum entre os dois argumentos informados.
+ * 
+ * @throws {TypeError} Se qualquer um dos argumentos estiver nulo ou indefinido.
+ * @throws {TypeError} Se qualquer um dos argumentos não for um número.
+ * @throws {TypeError} Se qualquer um dos argumentos não for um númeral inteiro.
+ * @throws {RangeError} Se o segundo argumento informado for maior que o primeiro ou o segundo fator for negativo, não é possivel calcular o MDC.
+ */
+
+
+
 function maiorDivisorComum(primeiroValor, segundoValor) {
     if (primeiroValor === null || primeiroValor === undefined || segundoValor === null || segundoValor === undefined) {
         throw new TypeError("Valor nulo ou indefinido");
@@ -15,7 +31,7 @@ function maiorDivisorComum(primeiroValor, segundoValor) {
     }
 
     while (segundoValor !== 0) {
-        var temporario = mod(primeiroValor, segundoValor);
+        let temporario = mod(primeiroValor, segundoValor);
         primeiroValor = segundoValor;
         segundoValor = temporario;
     }

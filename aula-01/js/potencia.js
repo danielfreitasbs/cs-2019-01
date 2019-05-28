@@ -1,3 +1,15 @@
+/**
+ * Produz a potencia do numero base, pela potencia informada.
+ * 
+ * @param {number} base numero que será multiplicado por si mesmo mediante a quantidade informada na potencia
+ * @param {number} potencia numero de vezes que a base será multiplicada por ela mesma
+ * 
+ * @returns {number} a potencia da base pela quantidade de termos da potencia.
+ * 
+ * @throws {TypeError} Se qualquer um dos argumentos não for um número.
+ * @throws {RangeError} Para calculo da potencia, é necessário que base e potencia sejam maiores que zero. Caso seja zero a potencia é a propria base ou zero.
+ */
+
 function Potencia(base, potencia) {
 
     if (isNaN(base) || isNaN(potencia)) {

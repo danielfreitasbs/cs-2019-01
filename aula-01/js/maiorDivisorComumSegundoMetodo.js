@@ -1,3 +1,19 @@
+/**
+ * Encontra o maior divisor comum entre primeiroValor e segundoValor, sem o uso do calculo de resto.
+ * 
+ * @param {number} primeiroValor numero que fará par para encontrar o maior divisor comum.
+ * @param {number} segundoValor numero que fará par para encontrar o maior divisor comum.
+ * 
+ * @returns {number} maior divisor comum entre os dois argumentos informados.
+ * 
+ * @throws {TypeError} Se qualquer um dos argumentos estiver nulo ou indefinido.
+ * @throws {TypeError} Se qualquer um dos argumentos não for um número.
+ * @throws {TypeError} Se qualquer um dos argumentos não for um númeral inteiro.
+ * @throws {RangeError} Se o segundo argumento informado for maior que o primeiro ou o segundo fator for negativo, não é possivel calcular o MDC.
+ */
+
+
+
 function maiorDivisorComumSegundoMetodo(primeiroValor, segundoValor) {
     if (primeiroValor === null || primeiroValor === undefined || segundoValor === null || segundoValor === undefined) {
         throw new TypeError("Valor nulo ou indefinido");
