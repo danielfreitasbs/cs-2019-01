@@ -23,7 +23,7 @@ function fatorial(numero) {
     let iteradorDeSoma = 2;
     let fatorial = 1;
 
-    while (iteradorDeSoma <= numero) {
+    while (iteradorDeSoma <= valor) {
         fatorial = fatorial * iteradorDeSoma;
         iteradorDeSoma = iteradorDeSoma + 1;
     }

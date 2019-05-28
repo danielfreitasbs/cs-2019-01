@@ -17,7 +17,12 @@ function validarDigitosCPF(arrayCPF) {
         throw new RangeError("CPF deve ter 11 dígitos: " + arrayCPF);
     }
 
-    let digitosCpf = converteCaracteresEmInteiros(arrayCPF);
+    let digitosCpf = [];
+
+    for (let iterador = 0; iterador < arrayCPF.length; iterador++) {
+        digitosCpf[iterador] = parseInt(arrayCPF.charAt(iterador));
+    }
+
     let calculoParcialDigito10 = digitosCpf[0];
     let calculoParcialDigito11 = digitosCpf[1];
 

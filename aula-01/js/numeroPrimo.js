@@ -24,9 +24,9 @@ function numeroPrimo(numero) {
         throw new RangeError("n deve ser maior ou igual a 2.");
     }
 
-    let calculoNumero = primo;
+    let calculoNumero = numero;
 
-    for (let iterador = 2; iterador < numero; iterador++) {
+    for (let iterador = 2; iterador < calculoNumero; iterador++) {
         if ((calculoNumero % iterador) == 0) {
             return false;
         }

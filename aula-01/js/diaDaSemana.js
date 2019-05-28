@@ -18,9 +18,9 @@ function diaDaSemana(dia, mes, ano) {
     if (isNaN(dia) || isNaN(mes) || isNaN(ano)) {
         throw new TypeError("Forneca um os valores corretos. \nValores informados: Dia: " + dia + "\nMes: " + mes + "\nAno: " + ano);
     }
-    const dia = dia;
+    /*const dia = dia;
     const mes = mes;
-    const ano = ano;
+    const ano = ano;*/
 
     if (dia < 1 || dia > 31) {
         throw new RangeError("Valor informado para o dia incorreto. \nValor informado: " + dia);

@@ -17,7 +17,7 @@ function logaritmoNatural(numero, termosPrecisao) {
 
     let iteradorAuxiliar, numeroEuler, denominador, numerador;
 
-    if (n <= 1 || termosPrecisao >= 2) {
+    if (numero <= 1 || termosPrecisao >= 2) {
         iteradorAuxiliar = 2;
         numeroEuler = 1 + numero;
         numerador = numero;

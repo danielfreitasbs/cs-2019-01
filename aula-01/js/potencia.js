@@ -10,6 +10,8 @@
  * @throws {RangeError} Para calculo da potencia, é necessário que base e potencia sejam maiores que zero. Caso seja zero a potencia é a propria base ou zero.
  */
 
+const funcao = require("./produto");
+
 function potencia(base, potencia) {
 
     if (isNaN(base) || isNaN(potencia)) {
@@ -23,7 +25,7 @@ function potencia(base, potencia) {
     let iterator = 1;
 
     while (iterator <= potencia) {
-        pow = Produto(pow, base);
+        pow = funcao(pow, base);
         iterator++;
     }
 

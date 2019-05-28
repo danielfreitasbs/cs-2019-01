@@ -34,7 +34,7 @@ function produto(primeroFator, segundoFator) {
     let iterator = 1;
     let soma = 0;
 
-    while (i <= totalParcelas) {
+    while (iterator <= totalParcelas) {
         soma = soma + parcela;
         iterator++;
     }

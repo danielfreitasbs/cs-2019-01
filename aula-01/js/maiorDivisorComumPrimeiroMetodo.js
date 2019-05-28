@@ -1,4 +1,4 @@
-import { mod } from mod;
+import { mod } from "../js/mod";
 
 /**
  * Encontra o maior divisor comum entre primeiroValor e segundoValor, com o uso do calculo de resto.
