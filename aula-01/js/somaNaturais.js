@@ -1,5 +1,5 @@
 /**
- * Produz a soma dos números naturais, iniciando em 0 até o argumento
+ * Produz a soma dos números naturais, iniciando em 0 até o argumento.
  *
  * @param {number} numero O número até o qual deve-se produzir a soma dos
  * naturais
@@ -34,3 +34,5 @@ function somaNaturais(numero) {
 
     return s;
 }
+
+module.exports = somaNaturais;

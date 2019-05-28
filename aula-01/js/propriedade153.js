@@ -29,3 +29,5 @@ function propriedade153(numero) {
     return total == numero;
 
 }
+
+module.exports = propriedade153;

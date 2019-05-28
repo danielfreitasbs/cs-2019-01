@@ -9,7 +9,7 @@
  * @throws {RangeError} Se o numero for 1 o fatorial é 1, e caso seja menor que 1 não é possivel calcular o fatorial.
  */
 
-function Fatorial(numero) {
+function fatorial(numero) {
     if (isNaN(numero)) {
         throw new TypeError("Argumento com valor incorreto. \nValor informado: " + numero);
     }
@@ -30,3 +30,5 @@ function Fatorial(numero) {
 
     return fatorial;
 }
+
+module.exports = fatorial;

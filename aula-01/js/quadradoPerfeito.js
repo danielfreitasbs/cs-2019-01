@@ -30,3 +30,5 @@ function quadradoPerfeito(numero) {
 
     return auxiliarSoma == numero;
 }
+
+module.exports = quadradoPerfeito;

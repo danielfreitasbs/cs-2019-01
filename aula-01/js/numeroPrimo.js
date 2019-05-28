@@ -34,3 +34,5 @@ function numeroPrimo(numero) {
 
     return true;
 }
+
+module.exports = numeroPrimo;

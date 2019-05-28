@@ -9,7 +9,7 @@
  * @throws {RangeError} o numero de termos para o calculo deve ser maior que 1.
  */
 
-function Pi(termosDePrecisao) {
+function pi(termosDePrecisao) {
     if (isNaN(termosDePrecisao)) {
         throw new TypeError("Valor atribuido incorretamente. Valor informado: " + termosDePrecisao);
     }
@@ -32,3 +32,5 @@ function Pi(termosDePrecisao) {
 
     return pi;
 }
+
+module.exports = pi;

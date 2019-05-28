@@ -33,3 +33,5 @@ function logaritmoNatural(numero, termosPrecisao) {
 
     return numeroEuler;
 }
+
+module.exports = logaritmoNatural;

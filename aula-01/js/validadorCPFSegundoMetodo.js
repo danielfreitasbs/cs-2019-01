@@ -31,3 +31,5 @@ function validadorCPF2(arrayCPF) {
 
     return calculoFinalDigito10 === digitosCpf[9] && calculoFinalDigito11 === digitosCpf[10];
 }
+
+module.exports = validadorCPF2;

@@ -28,4 +28,4 @@ function mod(dividendo, divisor) {
     return resto;
 }
 
-export { mod };
+module.exports = mod;

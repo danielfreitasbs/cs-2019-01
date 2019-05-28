@@ -1,6 +1,5 @@
 /**
- * Avalia se CPF fornecido é válido dado seus dígitos verificados
- * (dois últimos dígitos)
+ * Avalia se CPF fornecido é válido dado seus dígitos verificados (dois últimos dígitos).
  *
  * @param {String} arrayCPF String que contém CPF
  *
@@ -35,3 +34,5 @@ function validarDigitosCPF(arrayCPF) {
 
     return calculoFinalDigito10 == digitosCpf[9] && calculoFinalDigito11 == digitosCpf[10];
 }
+
+module.exports = validarDigitosCPF;

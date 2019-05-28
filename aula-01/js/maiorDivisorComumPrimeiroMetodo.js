@@ -38,3 +38,5 @@ function maiorDivisorComum(primeiroValor, segundoValor) {
 
     return primeiroValor;
 }
+
+module.exports = maiorDivisorComum;

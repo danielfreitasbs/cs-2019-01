@@ -10,7 +10,7 @@
  * @throws {RangeError} Para calculo da potencia, é necessário que base e potencia sejam maiores que zero. Caso seja zero a potencia é a propria base ou zero.
  */
 
-function Potencia(base, potencia) {
+function potencia(base, potencia) {
 
     if (isNaN(base) || isNaN(potencia)) {
         throw new TypeError("Valor informado incorretamente. \nValores informados, base = " + base + " e potencia = " + potencia);
@@ -29,3 +29,5 @@ function Potencia(base, potencia) {
 
     return pow;
 }
+
+module.exports = potencia;

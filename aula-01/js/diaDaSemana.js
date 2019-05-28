@@ -39,3 +39,5 @@ function diaDaSemana(dia, mes, ano) {
 
     return resultado % 7;
 }
+
+module.exports = diaDaSemana;

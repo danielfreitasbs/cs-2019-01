@@ -30,3 +30,5 @@ function propriedade3025(numero) {
     return quadradoDezenas == numero;
 
 }
+
+module.exports = propriedade3025;
