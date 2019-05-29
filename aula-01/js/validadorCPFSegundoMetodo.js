@@ -19,7 +19,12 @@ function validadorCPF2(arrayCPF) {
         throw new RangeError("CPF deve ter 11 dígitos: " + arrayCPF);
     }
 
-    let digitosCpf = converteCaracteresEmInteiros(arrayCPF);
+    let digitosCpf = [];
+
+    for (let iterador = 0; iterador < arrayCPF.length; iterador++) {
+        digitosCpf[iterador] = parseInt(arrayCPF.charAt(iterador));
+    }
+
     let calculoParcialDigito11 = digitosCpf[8];
     let calculoParcialDigito10 = calculoParcialDigito11;
     for (let c = 7; c >= 0; c--) {
@@ -31,3 +36,5 @@ function validadorCPF2(arrayCPF) {
 
     return calculoFinalDigito10 === digitosCpf[9] && calculoFinalDigito11 === digitosCpf[10];
 }
+
+module.exports = validadorCPF2;

@@ -34,3 +34,5 @@ function maiorDivisorComumSegundoMetodo(primeiroValor, segundoValor) {
 
     return primeiroValor;
 }
+
+module.exports = maiorDivisorComumSegundoMetodo;

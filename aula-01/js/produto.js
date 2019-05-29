@@ -10,7 +10,7 @@
  * @throws {RangeError} para se calcular o produto os dois fatores devem ser maiores que zero. Caso sejam zero, o produto sempre será zero.
  */
 
-function Produto(primeroFator, segundoFator) {
+function produto(primeroFator, segundoFator) {
 
     if (isNaN(primeroFator) || isNaN(segundoFator)) {
         throw new TypeError("Valores incorretos atribuidos aos fatores. \nPrimeiro fator: " + primeroFator + "\n Segundo fator: " + segundoFator);
@@ -34,10 +34,12 @@ function Produto(primeroFator, segundoFator) {
     let iterator = 1;
     let soma = 0;
 
-    while (i <= totalParcelas) {
+    while (iterator <= totalParcelas) {
         soma = soma + parcela;
         iterator++;
     }
 
     return soma;
 }
+
+module.exports = produto;

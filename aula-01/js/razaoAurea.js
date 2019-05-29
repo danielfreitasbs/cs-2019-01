@@ -1,5 +1,5 @@
 /**
- * Produz a razão áurea considerando dois números inteiros positivos
+ * Produz a razão áurea considerando dois números inteiros positivos.
  *
  * @param {number} primeiroInteiro O primero inteiro a ser considerado
  * @param {number} segundoInteiro O segundo inteiro a ser considerado

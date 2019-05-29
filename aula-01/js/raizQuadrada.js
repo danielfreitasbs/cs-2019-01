@@ -36,3 +36,5 @@ function raizQuadrada(radicando, precisao) {
 
     return raizQuadrada;
 }
+
+module.exports = raizQuadrada;
