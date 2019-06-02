@@ -1,9 +1,9 @@
-package main.java.com.github.danielfreitasbs;
+package com.github.danielfreitasbs;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
 
-public class GeneralAlgorithms {
+public class Algoritmos {
 	
 	/**
      * Verifica se numero satisfaz propriedade 3025.
