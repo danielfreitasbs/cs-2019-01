@@ -4,8 +4,14 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 
 public class Algoritmos {
-	
-	/**
+    /**
+     * Restringe visibilidade do construtor.
+     */
+    protected Algoritmos() {
+
+    }
+
+/**
      * Verifica se numero satisfaz propriedade 3025.
      * @param numero variavel a ser verificada
      * @throws IllegalArgumentException caso entrada seja menor que 0
@@ -15,7 +21,8 @@ public class Algoritmos {
     */
     public static boolean propriedade3025(final int numero) {
         final int limiteMaximo = 9999;
-        if (numero < 0 || numero > limiteMaximo) {
+        final int limiteMinimo = 0;
+        if (numero < limiteMinimo || numero > limiteMaximo) {
             throw new IllegalArgumentException("Intervalo numerico inválido");
         }
         final int auxiliar1 = 100;
@@ -136,8 +143,8 @@ public class Algoritmos {
      * @return retorna a soma dos primeiros números até n
      */
      public static int somaNaturais(final int numero) {
-
-        if (numero < 1) {
+        final int limiteSuperior = 1;
+        if (numero < limiteSuperior) {
             throw new IllegalArgumentException(
                 "Intervalo numérico inválido");
         }
@@ -157,8 +164,8 @@ public class Algoritmos {
      * @return retorna o fatorial calculado
      */
     public static int fatorial(final int numero) {
-
-        if (numero < 1) {
+        final int limiteSuperior = 1;
+        if (numero < limiteSuperior) {
             throw new IllegalArgumentException(
                 "Intervalo da variável inválido");
         }
@@ -184,22 +191,23 @@ public class Algoritmos {
     public static int produto(final int multiplicando,
                               final int multiplicador) {
 
-        if (multiplicando < 0) {
+                                  
+        int totalParcelas = multiplicando;
+        int parcela = multiplicador;
+        
+        if (totalParcelas < 0) {
             throw new IllegalArgumentException(
                 "Intervalo do multiplicando inválido");
         }
 
-        if (multiplicador < 0) {
+        if (parcela < 0) {
             throw new IllegalArgumentException(
                 "Intervalo do multiplicador inválido");
         }
 
-        int totalParcelas = multiplicando;
-        int parcela = multiplicador;
-
-        if (multiplicando > multiplicador) {
-            totalParcelas = multiplicador;
-            parcela = multiplicando;
+        if (totalParcelas > parcela) {
+            totalParcelas = parcela;
+            parcela = totalParcelas;
         }
 
         int produto = 0;
@@ -251,8 +259,8 @@ public class Algoritmos {
      * @return retorna o valor calculado de pi
      */
     public static double algoritmoPi(final int numero) {
-
-        if (numero < 1) {
+        final int limiteSuperior = 1;
+        if (numero < limiteSuperior) {
             throw new IllegalArgumentException(
                 "Intervalo da entrada inválido");
         }
@@ -279,15 +287,15 @@ public class Algoritmos {
      * @throws IllegalArgumentException caso n seja menor que 1 e k menor que 2
      * @return o logaritmo elevado a n calculado com precisão k
      */
-    public static float logaritmoNatural(final float potencia,
-                                         final float precisao) {
-
-        if (potencia < 1) {
+    public static float logaritmoNatural(final float potencia, final float precisao) {
+        final int limiteSuperiorPotencia = 1;
+        final int limiteSuperiorPrecisao = 2;
+        if (potencia < limiteSuperiorPotencia) {
             throw new IllegalArgumentException(
                 "Intervalo da potencia inválido");
         }
 
-        if (precisao < 2) {
+        if (precisao < limiteSuperiorPrecisao) {
             throw new IllegalArgumentException("Intervalo de k inválido");
         }
 
@@ -352,8 +360,8 @@ public class Algoritmos {
      * @return o quadrado perfeito
      */
     public static boolean quadradoPerfeito(final int numero) {
-
-        if (numero < 1) {
+        final int limiteSuperior = 1;
+        if (numero < limiteSuperior) {
             throw new IllegalArgumentException(
                 "Intervalo da variável inválido");
         }
@@ -398,8 +406,8 @@ public class Algoritmos {
      * @return true caso entrada seja um número primo
      */
     public static boolean primo(final int numero) {
-
-        if (numero < 1) {
+        final int limiteSuperior = 1;
+        if (numero < limiteSuperior) {
             throw new IllegalArgumentException(
                 "Intervalo de número inválido");
         }
@@ -424,12 +432,12 @@ public class Algoritmos {
      * @return vetor com resultado calculado
      */
     public static int[] crivoEratostenes(final int[] array) {
-
+        final int limiteSuperior = 1;
         if (array == null) {
             throw new IllegalArgumentException("array is null");
         }
 
-        if (array.length < 1) {
+        if (array.length < limiteSuperior) {
             throw new IllegalArgumentException("Tamanho do array inválido");
         }
 
@@ -531,10 +539,9 @@ public class Algoritmos {
      * @throws IllegalArgumentException caso g seja menor que 1
      * @return o valor calculado pelo método de horner
      */
-    public static int horner(final int numero,
-                             final int tam, final int[] array) {
-
-        if (tam < 1) {
+    public static int horner(final int numero, final int tam, final int[] array) {
+        final int limiteSuperior = 1;
+        if (tam < limiteSuperior) {
             throw new IllegalArgumentException(
                 "Tamanho inválido");
         }
