@@ -191,23 +191,22 @@ public class Algoritmos {
     public static int produto(final int multiplicando,
                               final int multiplicador) {
 
-                                  
-        int totalParcelas = multiplicando;
-        int parcela = multiplicador;
-        
-        if (totalParcelas < 0) {
+        if (multiplicando < 0) {
             throw new IllegalArgumentException(
                 "Intervalo do multiplicando inválido");
         }
 
-        if (parcela < 0) {
+        if (multiplicador < 0) {
             throw new IllegalArgumentException(
                 "Intervalo do multiplicador inválido");
         }
 
-        if (totalParcelas > parcela) {
-            totalParcelas = parcela;
-            parcela = totalParcelas;
+        int totalParcelas = multiplicando;
+        int parcela = multiplicador;
+
+        if (multiplicando > multiplicador) {
+            totalParcelas = multiplicador;
+            parcela = multiplicando;
         }
 
         int produto = 0;
