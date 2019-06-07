@@ -1,20 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>com.github.danielfreitasbs</groupId>
-    <artifactId>cs-2019-01</artifactId>
-    <packaging>jar</packaging>
-    <version>1.0.1</version>
-
-    <name>${project.groupId}:${project.artifactId}</name>
-
-    <description>
-       Projeto referente a lista de exercicios da disciplina de Construção de Software
-       do curso de Engenharia de Software da UFG.
-    </description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.com.danielfreitasbs</groupId>
+  <artifactId>inteiro</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <description>Projeto referente ao sexto exercício das atividades propostas em aula-08, pela disciplina de construção de software - UFG</description>
 
     <url>https://github.com/danielfreitasbs/cs-2019-01</url>
 
@@ -62,7 +51,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.mainClass>
-            com.github.danielfreitasbs.GeneralAlgorithms
+            com.github.danielfreitasbs.domain.application.Console
         </project.mainClass>
 
         <tools.dir>${project.basedir}/tools</tools.dir>
