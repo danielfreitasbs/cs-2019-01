@@ -166,8 +166,8 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>3.1.11</version>
-            </plugin>
+                <version>3.1.12</version>
+			</plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -357,14 +357,14 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>4.0.2</version>
+                <version>5.0.0</version>
                 <reportSets>
                     <reportSet>
                         <reports>
                             <report>aggregate</report>
                         </reports>
                     </reportSet>
-                </reportSets>
+				</reportSets>
             </plugin>
 
             <plugin>
@@ -583,14 +583,14 @@
                     <plugin>
                         <groupId>org.owasp</groupId>
                         <artifactId>dependency-check-maven</artifactId>
-                        <version>4.0.2</version>
+                        <version>5.0.0</version>
                         <executions>
                             <execution>
                                 <goals>
                                     <goal>check</goal>
                                 </goals>
                             </execution>
-                        </executions>
+						</executions>
                     </plugin>
                 </plugins>
             </build>

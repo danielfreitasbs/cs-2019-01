@@ -3,12 +3,19 @@ package com.github.danielfreitasbs;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 
-public class Algoritmos {
+/**
+ * 
+ * Funções matematicas diversas propostas na lista de exercício referente a aula 01 da disciplina
+ * de Construção de Software do INF-UFG.
+ * 
+ * @author Daniel Freitas
+ *
+ */
+public final class Algoritmos {
     /**
      * Restringe visibilidade do construtor.
      */
-    protected Algoritmos() {
-
+    private Algoritmos() {
     }
 
 /**
@@ -22,9 +29,11 @@ public class Algoritmos {
     public static boolean propriedade3025(final int numero) {
         final int limiteMaximo = 9999;
         final int limiteMinimo = 0;
+        
         if (numero < limiteMinimo || numero > limiteMaximo) {
             throw new IllegalArgumentException("Intervalo numerico inválido");
         }
+        
         final int auxiliar1 = 100;
         final int primDezena = numero / auxiliar1;
         final int segDezena = numero % auxiliar1;
@@ -49,16 +58,22 @@ public class Algoritmos {
             throw new IllegalArgumentException("Intervalo inválido");
         }
 
-        final int auxiliar1 = 100;
-        final int auxiliar2 = 10;
-        final int centena = numero / auxiliar1;
-        final int dezenaAux = numero % auxiliar1;
-        final int dezena = dezenaAux / auxiliar2;
-        final int unidade = dezenaAux % auxiliar2;
+        final int centenaAuxiliar = 100;
+        final int dezenaAuxiliar = 10;
+        final int potencia = 3;
+        final int centena = numero / centenaAuxiliar;
+        final int restoCentena = numero % centenaAuxiliar;
+        final int dezena = restoCentena / dezenaAuxiliar;
+        final int unidade = restoCentena % dezenaAuxiliar;
+        
+		final double propriedadeCentena = Math.pow(centena, potencia);
+		final double propriedadeDezena = Math.pow(dezena, potencia);
+		final double propriedadeUnidade = Math.pow(unidade, potencia);
+		
+		final int calculoPropriedade = (int) (propriedadeCentena + propriedadeDezena
+				+ propriedadeUnidade);
 
-        return (centena * centena * centena)
-               + (dezena * dezena * dezena)
-               + (unidade * unidade * unidade) == numero;
+        return calculoPropriedade == numero;
     }
 
     /**
@@ -69,27 +84,11 @@ public class Algoritmos {
      * @throws IllegalArgumentException caso a data não seja válida
      * @return retorna o numero equivalente ao dia da semana que foi calculado
     */
-
     public static int diaSemana(final int dia, final int mes, final int ano) {
-        final int diaMaximo = 31;
-        if (dia < 1 || dia > diaMaximo) {
-            throw new IllegalArgumentException("Dia inválido");
-        }
-        final int mesMaximo = 12;
-        if (mes < 1 || mes > mesMaximo) {
-            throw new IllegalArgumentException("Mês inválido");
-        }
-        final int anoMinimo = 1753;
-        if (ano < anoMinimo) {
-            throw new IllegalArgumentException("Ano inválido");
-        }
-
-        try {
-            LocalDate.of(ano, mes, dia);
-        } catch (DateTimeException exp) {
-            final String data = String.format("%d/%d/%d", dia, mes, ano);
-            throw new IllegalArgumentException("data invalida: " + data, exp);
-        }
+        verificaDia(dia);
+        verificaMes(mes);
+        verificaAno(ano);
+        validaFormatoData(dia, mes, ano);
 
         final int diaAux = dia;
         int mesAux = mes;
@@ -107,6 +106,60 @@ public class Algoritmos {
 
         final int auxResultado = 7;
         return resultado % auxResultado;
+    }
+    
+    /**
+     * Realiza a verificação do formato da data em formato dd/MM/aaaa.
+     * 
+     * @param dia dia do ano.
+     * @param mes numero do mês do ano.
+     * @param ano ano que deseja validar.
+     */
+	private static void validaFormatoData(final int dia, final int mes, final int ano) {
+		try {
+            LocalDate.of(ano, mes, dia);
+        } catch (DateTimeException exp) {
+            final String data = String.format("%d/%d/%d", dia, mes, ano);
+            throw new IllegalArgumentException("data invalida: " + data, exp);
+        }
+	}
+    
+	/**
+	 * Valida se o dia está dentro do intervalo correto
+	 * 
+	 * @param dia que deseja verificar se o está correto.
+	 */
+    private static void verificaDia(final int dia) {
+    	final int diaMinimo = 1;
+    	final int diaMaximo = 31;
+    	if (dia < diaMinimo || dia > diaMaximo) {
+    		throw new IllegalArgumentException("Dia inválido");
+    	}
+    }
+    
+    /**
+     * Valida se o mês está dentro do intervalo correto do calendario gregoriano.
+     * 
+     * @param mes, numero referente ao mês que deseja verificar a validade indo de 1(janeiro) a 12(dezembro).
+     */
+    private static void verificaMes(final int mes) {
+    	final int mesMaximo = 12;
+    	final int mesMinimo = 1;
+    	if (mes < mesMinimo || mes > mesMaximo) {
+    		throw new IllegalArgumentException("Mês inválido");
+    	}
+    }
+    
+    /**
+     * Valida se o ano está abaixo do minimo necessário para a verificação do metodo.
+     * 
+     * @param ano que será validado.
+     */
+    private static void verificaAno(final int ano) {
+    	final int anoMinimo = 1753;
+    	if (ano < anoMinimo) {
+    		throw new IllegalArgumentException("Ano inválido");
+    	}
     }
 
     /**
@@ -288,12 +341,12 @@ public class Algoritmos {
      */
     public static float logaritmoNatural(final float potencia, final float precisao) {
         final int limiteSuperiorPotencia = 1;
-        final int limiteSuperiorPrecisao = 2;
         if (potencia < limiteSuperiorPotencia) {
             throw new IllegalArgumentException(
                 "Intervalo da potencia inválido");
         }
 
+        final int limiteSuperiorPrecisao = 2;
         if (precisao < limiteSuperiorPrecisao) {
             throw new IllegalArgumentException("Intervalo de k inválido");
         }
@@ -431,39 +484,76 @@ public class Algoritmos {
      * @return vetor com resultado calculado
      */
     public static int[] crivoEratostenes(final int[] array) {
-        final int limiteSuperior = 1;
-        if (array == null) {
-            throw new IllegalArgumentException("array is null");
-        }
+        verificaArrayNulo(array);
+        verificaTamanhoArray(array);
+        verificaArrayZerado(array);
 
-        if (array.length < limiteSuperior) {
-            throw new IllegalArgumentException("Tamanho do array inválido");
-        }
+        int contador = 2;
+        final int limite = (int) Math.floor(Math.sqrt(array.length));
 
-        for (final int valor : array) {
+        calculaCrivo(array, contador, limite);
+
+        return array;
+    }
+
+    /**
+     * Realiza o calculo matematico do crivo.
+     * 
+     * @param array
+     * @param contador
+     * @param limite
+     */
+	private static void calculaCrivo(final int[] array, final int contador, final int limite) {
+		int contadorCalculo = contador;
+		while (contadorCalculo <= limite) {
+
+			int multiplo = contadorCalculo + contadorCalculo;
+
+			while (multiplo <= array.length) {
+				array[multiplo] = 1;
+				multiplo += contadorCalculo;
+			}
+
+			contadorCalculo++;
+		}
+	}
+
+    /**
+     * Verifica se o array foi informado com as posicoes zeradas.
+     * 
+     * @param array a ser verificado.
+     */
+	private static void verificaArrayZerado(final int[] array) {
+		for (final int valor : array) {
             if (valor != 0) {
                 throw new IllegalArgumentException(
                     "O array precisa estar zerado");
             }
         }
+	}
 
-        int contador = 2;
-        final int limite = (int) Math.floor(Math.sqrt(array.length));
-
-        while (contador <= limite) {
-
-            int multiplo = contador + contador;
-
-                while (multiplo <= array.length) {
-                    array[multiplo] = 1;
-                    multiplo += contador;
-                }
-
-            contador += 1;
+	/**
+	 * Verifica se o tamanho do array está válido.
+	 * 
+	 * @param array a ser verificado.
+	 */
+	private static void verificaTamanhoArray(final int[] array) {
+		final int limiteSuperior = 1;
+        if (array.length < limiteSuperior) {
+            throw new IllegalArgumentException("Tamanho do array inválido");
         }
+	}
 
-        return array;
-    }
+	/**
+	 * Verifica se o array foi informado com valor nulo.
+	 * 
+	 * @param array a ser verificado.
+	 */
+	private static void verificaArrayNulo(final int[] array) {
+		if (array == null) {
+            throw new IllegalArgumentException("array is null");
+        }
+	}
 
     /**
      * Calcula o maior divisor comum entre a e b.
@@ -544,9 +634,7 @@ public class Algoritmos {
             throw new IllegalArgumentException(
                 "Tamanho inválido");
         }
-        if (array == null) {
-            throw new IllegalArgumentException("array is null");
-        }
+        verificaArrayNulo(array);
 
         int polinomio = array[tam];
         int contador = tam - 1;
