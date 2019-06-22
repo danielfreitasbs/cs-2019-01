@@ -7,7 +7,7 @@ public final class UtilitarioVetores {
 	 * 
 	 * @param vetor a ser verificado
 	 */
-	public static void validaTamanhoVetor(Double[] vetor) {
+	public static void validaTamanhoVetor(double[] vetor) {
 		final int limiteSuperiorVetor = 0;
 		if(vetor.length <= limiteSuperiorVetor) {
 			throw new ArrayStoreException("Não existem valores nos vetores");

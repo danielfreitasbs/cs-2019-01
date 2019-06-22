@@ -28,6 +28,7 @@ public final class ManipularVetores {
 	public static double menorTemperatura(double[] temperaturas) {
 		
 		UtilitarioVetores.validaConteudoVetor(temperaturas);
+		UtilitarioVetores.validaTamanhoVetor(temperaturas);
 		
 		double menorTemperatura = obterMenorTemperaturaVetor(temperaturas);
 		
@@ -58,8 +59,6 @@ public final class ManipularVetores {
 	 * @return a soma de todos os valores inteiros encontrados no vetor @valores.
 	 */
 	public static int somaDoisImpares(int[] valores) {
-		final int limiteSuperiorVetor = 0;
-		
 		UtilitarioVetores.validaTamanhoVetor(valores);
 		UtilitarioVetores.validaConteudoVetor(valores);
 		
@@ -80,14 +79,20 @@ public final class ManipularVetores {
 	 * @param verificador, valor em que se deseja verificar quantas ocorrências existem no vetor.
 	 * @return
 	 */
-	public static int encontraIguais(final Double[] valores, final Double verificador) {
-		final Double verificadorAux = verificador;
+	public static int encontraIguais(final double[] valores, final Double verificador) {
+		
+		if(verificador == null) {
+			throw new IllegalArgumentException("Digito verificador nulo");
+		}
+		
+		final double verificadorAux = verificador;
 		
 		UtilitarioVetores.validaTamanhoVetor(valores);
+		UtilitarioVetores.validaConteudoVetor(valores);
 		
 		int ocorrenciaIguais = 0;
 		
-		for(Double valor : valores) {
+		for(double valor : valores) {
 			if(valor == verificadorAux)
 				ocorrenciaIguais++;
 		}
@@ -95,6 +100,11 @@ public final class ManipularVetores {
 		return ocorrenciaIguais;
 	}
 	
+	/**
+	 * Encontra todas as letras repetidas em uma cadeia de carateres
+	 * 
+	 * @param cadeiaCaracteres
+	 */
 	public static void letrasRepetidas(final char[] cadeiaCaracteres) {
 
 		UtilitarioVetores.validaConteudoVetor(cadeiaCaracteres);
