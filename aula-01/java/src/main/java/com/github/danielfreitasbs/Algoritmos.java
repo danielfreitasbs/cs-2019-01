@@ -565,6 +565,8 @@ public final class Algoritmos {
      */
     public static int mdc(final int numeroA, final int numeroB) {
 
+	// FIXME exceção gerada é em cenário estranho, pois a documentação não 
+	// exige que um dos argumentos seja maior que o outro?!!!!
         if (numeroA < numeroB) {
             throw new IllegalArgumentException(
                 "NumeroA deve ser maior que numeroB");
