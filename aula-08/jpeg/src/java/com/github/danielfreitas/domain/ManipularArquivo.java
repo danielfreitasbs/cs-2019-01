@@ -10,11 +10,13 @@ import java.io.InputStreamReader;
 public class ManipularArquivo {
     
     /**
+    * FIXME Este não é o primeiro byte, mas os quatro primeiros bytes???!!!!
      * Primeiro byte identificador padrão de arquivos JPEG
      */
     private static final int primeiroByteJpeg = 0xffffffd9;
     
     /**
+     * FIXME À semelhança do FIXME anterior, esta constante é um int (quatro bytes)??!!!!
      * Ultimo byte identificador padrão de arquivos JPEG
      */
     private static final int ultimoByteJpeg = 0xffd8ffe0;
