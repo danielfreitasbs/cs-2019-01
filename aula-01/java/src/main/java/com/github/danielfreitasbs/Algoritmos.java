@@ -262,6 +262,10 @@ public final class Algoritmos {
             parcela = multiplicando;
         }
 
+	// TODO não seria mais simples a versão abaixo do que a posterior?
+	// for (int i = 1; i <= totalParcelas; i++) {
+	//    produto = produto + parcela;
+	// }
         int produto = 0;
         int aux = 1;
 
