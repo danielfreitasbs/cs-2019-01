@@ -95,6 +95,8 @@ public final class Algoritmos {
         int anoAux = ano;
         final int mesMais = 12;
         final int anoMenos = 1;
+	    
+	// FIXME legibilidade. Não seria mesAux == JANEIRO || mesAux == FEVEREIRO melhor?
         if (mesAux == 1 || mesAux == 2) {
             mesAux += mesMais;
             anoAux -= anoMenos;
@@ -104,6 +106,9 @@ public final class Algoritmos {
                        + anoAux + (anoAux / 4) - (anoAux / 100)
                        + (anoAux / 400);
 
+	// FIXME esta constante é um exagero aqui. Poderia ser, por outro lado
+	// final int normalizado = resultado % 7;
+	// return normalizado;
         final int auxResultado = 7;
         return resultado % auxResultado;
     }
