@@ -19,23 +19,38 @@ public final class Algoritmos {
     }
 
 /**
-     * Verifica se numero satisfaz propriedade 3025.
-     * @param numero variavel a ser verificada
+     * Verifica se número fornecido satisfaz a propriedade 3025.
+     * Esta propriedade está definida apenas para números de quatro
+     * dígitos.
+     * 
+     * <p>Se o quadrado da soma do número definido pelos dois primeiros dígitos com
+     * os dois últimos digitos for igual ao número fornecido, então este satisfaz
+     * a propriedade 3025.</p>
+     *
+     * @param numero número que será verificado.
+     
      * @throws IllegalArgumentException caso entrada seja menor que 0
-     * ou maior que 999
-     * @return o valor verdadeiro se o argumento fornecido
-     * satisfaz a propriedade 3025 e, o valor falso, caso contrário
+     * ou maior que 999.
+     
+     * @return o valor verdadeiro se o número fornecido
+     * satisfaz a propriedade 3025 e, o valor falso, caso contrário.
     */
     public static boolean propriedade3025(final int numero) {
         final int limiteMaximo = 9999;
         final int limiteMinimo = 0;
         
         if (numero < limiteMinimo || numero > limiteMaximo) {
-            throw new IllegalArgumentException("Intervalo numerico inválido");
+            throw new IllegalArgumentException("Número fora da faixa.");
         }
         
+	// FIXME não faz sentido auxiliar1? Estava "fugindo" de verificação do CheckStyle ou PMD?
+	// FIXME caso queira manter, não seria melhor "centena"?
         final int auxiliar1 = 100;
+	    
+	// FIXME não seria melor primeiraDezena
         final int primDezena = numero / auxiliar1;
+	    
+	// FIXME não seria melor segundaDezena
         final int segDezena = numero % auxiliar1;
         final int resultado = (primDezena + segDezena)
                             * (primDezena + segDezena);
