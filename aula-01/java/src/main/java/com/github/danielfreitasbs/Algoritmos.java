@@ -130,6 +130,8 @@ public final class Algoritmos {
 	 * @param dia que deseja verificar se o está correto.
 	 */
     private static void verificaDia(final int dia) {
+	// FIXME Conhecer a biblioteca java é importante. Este método, por exemplo, já está disponível
+	// ChronoField.DAY_OF_MONTH.checkValidValue(dia);  // Com o passar do tempo, vai se conhecendo melhor o que já existe...
     	final int diaMinimo = 1;
     	final int diaMaximo = 31;
     	if (dia < diaMinimo || dia > diaMaximo) {
@@ -143,7 +145,10 @@ public final class Algoritmos {
      * @param mes, numero referente ao mês que deseja verificar a validade indo de 1(janeiro) a 12(dezembro).
      */
     private static void verificaMes(final int mes) {
+	// TODO você poderia usar Month.DECEMBER.getValue()
     	final int mesMaximo = 12;
+	    
+	// TODO você poderia usar Month.JANUARY.getValue()?
     	final int mesMinimo = 1;
     	if (mes < mesMinimo || mes > mesMaximo) {
     		throw new IllegalArgumentException("Mês inválido");
