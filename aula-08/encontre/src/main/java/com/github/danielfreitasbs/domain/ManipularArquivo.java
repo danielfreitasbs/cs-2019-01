@@ -1,12 +1,16 @@
 package com.github.danielfreitasbs.domain;
 
+
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*;
+
 /**
  * Esta classe manupula arquivos de texto para encontrar uma palavra especifica no mesmo.
  * 
@@ -81,22 +85,48 @@ public class ManipularArquivo {
 	 */
 	public static String encontrarPalavra(final String nomeDoArquivo, final String palavraBuscada) throws IOException {
 		
+		validaParametros(nomeDoArquivo, palavraBuscada);
+		
 		List<String> listaPalavrasEncontradas = buscaPalavra(nomeDoArquivo, palavraBuscada);
 		String palavrasEncontradas = "";
 		final String encontradas = "Encontradas: ";
 		if(listaPalavrasEncontradas.isEmpty()) {
-			return encontradas.concat("0");
+			return encontradas.concat("0.");
 		}else {
 			int quantidadeEncontradas = listaPalavrasEncontradas.size();
 			
-			palavrasEncontradas = encontradas.concat(Integer.toString(quantidadeEncontradas)).concat("\n");
+			palavrasEncontradas = encontradas.concat(Integer.toString(quantidadeEncontradas)).concat(".\n");
 			
 			for(String linha : listaPalavrasEncontradas) {
-				palavrasEncontradas.concat(linha.concat("\n"));
+				palavrasEncontradas.concat(linha.concat(".\n"));
 			}
 		}
 		
 		return palavrasEncontradas;
+	}
+	
+	/**
+	 * Verifica se os parametros obedecem os requisitos especificados.
+	 * 
+	 * @param nomeDoArquivo
+	 * @param palavraBuscada
+	 * @throws UnsupportedEncodingException
+	 */
+	static void validaParametros(final String nomeDoArquivo, final String palavraBuscada) throws UnsupportedEncodingException {
+
+		if(nomeDoArquivo == null) {
+			throw new IllegalArgumentException("Caminho de arquivo incorreto");
+		}
+		
+		if(palavraBuscada == null) {
+			throw new IllegalArgumentException("Palavra de busca não informada");
+		}
+		
+		final File arquivo = new File(nomeDoArquivo);
+		
+		if(arquivo.length() == 0) {
+			throw new IllegalArgumentException("Arquivo vazio.");
+		}
 	}
 	
 }
