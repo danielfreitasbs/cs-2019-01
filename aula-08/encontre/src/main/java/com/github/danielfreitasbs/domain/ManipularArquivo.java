@@ -1,5 +1,6 @@
 package com.github.danielfreitasbs.domain;
 
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -8,8 +9,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*;
 
-import org.apache.tomcat.util.buf.Utf8Encoder;
 /**
  * Esta classe manupula arquivos de texto para encontrar uma palavra especifica no mesmo.
  * 
@@ -90,14 +91,14 @@ public class ManipularArquivo {
 		String palavrasEncontradas = "";
 		final String encontradas = "Encontradas: ";
 		if(listaPalavrasEncontradas.isEmpty()) {
-			return encontradas.concat("0");
+			return encontradas.concat("0.");
 		}else {
 			int quantidadeEncontradas = listaPalavrasEncontradas.size();
 			
-			palavrasEncontradas = encontradas.concat(Integer.toString(quantidadeEncontradas)).concat("\n");
+			palavrasEncontradas = encontradas.concat(Integer.toString(quantidadeEncontradas)).concat(".\n");
 			
 			for(String linha : listaPalavrasEncontradas) {
-				palavrasEncontradas.concat(linha.concat("\n"));
+				palavrasEncontradas.concat(linha.concat(".\n"));
 			}
 		}
 		
@@ -117,16 +118,15 @@ public class ManipularArquivo {
 			throw new IllegalArgumentException("Caminho de arquivo incorreto");
 		}
 		
-		final String nomeDoArquivoUTF8 = new String(nomeDoArquivo.getBytes("UTF-8"));
-		//VALIDANDO SE O CAMINHO DO ARQUIVO ESTA EM UTF-8
-		if(!nomeDoArquivo.equals(nomeDoArquivoUTF8)) {
-			throw new UnsupportedEncodingException("Arquivo não está em formato UTF-8");
-		}
-		
 		if(palavraBuscada == null) {
 			throw new IllegalArgumentException("Palavra de busca não informada");
 		}
 		
+		final File arquivo = new File(nomeDoArquivo);
+		
+		if(arquivo.length() == 0) {
+			throw new IllegalArgumentException("Arquivo vazio.");
+		}
 	}
 	
 }
