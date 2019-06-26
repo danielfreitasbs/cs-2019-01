@@ -762,11 +762,14 @@ public final class Algoritmos {
         }
 
         final int[] d = cpfStringToArray(cpf);
+	    
+	// TODO observe que não são os dígitos, mas os índices correspodentes. O nome é enganoso. 
         final int digito7 = 7;
         final int digito8 = 8;
         final int digito9 = 9;
         final int digito10 = 10;
 
+	// TODO O esforço por fugir dos números mágicos pode atrapalhar, não é o caso?
         int aux7 = digito7;
         int auxiliar1 = d[digito8];
         int auxiliar2 = d[digito8];
