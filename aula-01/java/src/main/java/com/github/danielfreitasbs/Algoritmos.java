@@ -4,7 +4,10 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 
 /**
- * 
+ * FIXME a documentação abaixo fornece uma orientação da origem desta classe. Contudo,
+ * não é o que se deseja. Quem lê a documentação, pode até estar interessado nesta origem, 
+ * mas essencialmente, e antes disso, a informação sobre o que a classe oferece, o que ela implementa?
+ *
  * Funções matematicas diversas propostas na lista de exercício referente a aula 01 da disciplina
  * de Construção de Software do INF-UFG.
  * 
