@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ManipularArquivoTest {
 	
-
     private String getFilename(String string) {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource(string).getFile());
