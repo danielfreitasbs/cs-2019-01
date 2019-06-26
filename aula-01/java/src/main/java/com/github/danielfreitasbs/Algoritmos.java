@@ -496,6 +496,7 @@ public final class Algoritmos {
         return array;
     }
 
+    // FIXME este não é o padrão de alinhamento do código
     /**
      * Realiza o calculo matematico do crivo.
      * 
