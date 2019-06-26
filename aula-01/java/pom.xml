@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.danielfreitasbs</groupId>
-    <artifactId>cs-2019-01</artifactId>
+    <artifactId>aula-01</artifactId>
     <packaging>jar</packaging>
     <version>1.0.1</version>
 
