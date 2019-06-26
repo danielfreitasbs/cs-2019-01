@@ -756,6 +756,7 @@ public final class Algoritmos {
      */
     public static boolean cpf2(final String cpf) {
         final int aux11 = 11;
+	// FIXME a condição não é melhor cpf.length() != TAMANHO_CPF?
         if (cpf.length() < aux11 || cpf.length() > aux11) {
             throw new IllegalArgumentException("O CPF deve conter 11 dígitos");
         }
