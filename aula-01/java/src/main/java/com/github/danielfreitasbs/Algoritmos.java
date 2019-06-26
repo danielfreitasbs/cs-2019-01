@@ -537,6 +537,8 @@ public final class Algoritmos {
 	 * Verifica se o tamanho do array está válido.
 	 * 
 	 * @param array a ser verificado.
+	 * TODO você deve documentar as exceções (a verificação abaixo, contudo, é desnecessária, pois o método é private)
+	 * @throws IllegalArgumentException se o vetor for inválido. 
 	 */
 	private static void verificaTamanhoArray(final int[] array) {
 		final int limiteSuperior = 1;
