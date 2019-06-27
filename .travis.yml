@@ -2,7 +2,7 @@
 language: java
 
 script:
-  - cd aula-01/java && mvn test checkstyle:check pmd:check spotbugs:check
+  - cd aula-01/java && mvn test checkstyle:checkstyle pmd:pmd
 cache:
   directories:
   - "$HOME/.m2/repository"
