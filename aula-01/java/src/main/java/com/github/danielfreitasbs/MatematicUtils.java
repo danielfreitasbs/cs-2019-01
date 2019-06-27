@@ -21,10 +21,12 @@ public final class MatematicUtils {
    * Variavel que guarda o tamanho constante de um CPF válido.
    */
   static final int TAMANHO_CPF = 11;
+  
   /**
    * Variavel referente ao dia minimo que um mês pode ter.
    */
   static final int DIA_MINIMO = 1;
+  
   /**
    * Variavel referente ao dia máximo de um mês.
    */
@@ -125,9 +127,7 @@ public final class MatematicUtils {
     final int resultado = diaAux + (2 * mesAux) + (3 * (mesAux + 1) / 5) + anoAux + (anoAux / 4)
         - (anoAux / 100) + (anoAux / 400);
 
-    final int normalizado = resultado % 7;
-
-    return normalizado;
+    return resultado % 7;
   }
 
   /**
@@ -501,7 +501,7 @@ public final class MatematicUtils {
     verificaTamanhoArray(array);
     verificaArrayZerado(array);
 
-    int contador = 2;
+    final int contador = 2;
     final int limite = (int) Math.floor(Math.sqrt(array.length));
 
     calculaCrivo(array, contador, limite);
