@@ -2,7 +2,7 @@
 language: java
 
 script:
-  - cd aula-01/java && mvn test maven-checkstyle-plugin:3.1.0:checkstyle:check spotbugs:check verify -P cobertura
+  - cd aula-01/java && mvn test checkstyle:check spotbugs:check verify -P cobertura
 cache:
   directories:
   - "$HOME/.m2/repository"
