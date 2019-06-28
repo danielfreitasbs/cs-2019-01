@@ -161,7 +161,7 @@
 		</pluginManagement>
 
 		<!-- Define o nome do arquivo a ser gerado (.jar é acrescentada) -->
-		<finalName>exercicio_ottoleggio</finalName>
+		<finalName>aula-07-danielfreitasbs</finalName>
 
 		<plugins>
 
