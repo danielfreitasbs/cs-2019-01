@@ -21,12 +21,12 @@ public final class MatematicUtils {
    * Variavel que guarda o tamanho constante de um CPF válido.
    */
   static final int TAMANHO_CPF = 11;
-  
+
   /**
    * Variavel referente ao dia minimo que um mês pode ter.
    */
   static final int DIA_MINIMO = 1;
-  
+
   /**
    * Variavel referente ao dia máximo de um mês.
    */
@@ -65,7 +65,7 @@ public final class MatematicUtils {
 
   /**
    * Verifica se numero satisfaz a propriedade 153.
-   * 
+   *
    * @param numero variavel a ser verificada
    * @throws IllegalArgumentException caso entrada seja menor que 100 ou maior que 999
    * @return o valor verdadeiro se o argumento fornecido satisfaz a propriedade 153 e, o valor
@@ -98,7 +98,7 @@ public final class MatematicUtils {
 
   /**
    * Determina o dia da semana a partir de uma dada data.
-   * 
+   *
    * @param dia o dia
    * @param mes o mês
    * @param ano o ano
@@ -118,21 +118,28 @@ public final class MatematicUtils {
     final int anoMenos = 1;
     final int janeiro = 1;
     final int fevereiro = 2;
+    final int doisMes = 2;
+    final int tresMes = 3;
+    final int cincoMes = 5;
+    final int quatroAno = 4;
+    final int divCentena = 100;
+    final int divAno = 400;
+    final int unidadeMes = 1;
 
     if (mesAux == janeiro || mesAux == fevereiro) {
       mesAux += mesMais;
       anoAux -= anoMenos;
     }
 
-    final int resultado = diaAux + (2 * mesAux) + (3 * (mesAux + 1) / 5) + anoAux + (anoAux / 4)
-        - (anoAux / 100) + (anoAux / 400);
-
-    return resultado % 7;
+    final int resultado = diaAux + (doisMes * mesAux) + (tresMes * (mesAux + unidadeMes) / cincoMes)
+        + anoAux + (anoAux / quatroAno) - (anoAux / divCentena) + (anoAux / divAno);
+    final int qtdDiaSemana = 7;
+    return resultado % qtdDiaSemana;
   }
 
   /**
    * Realiza a verificação do formato da data em formato dd/MM/aaaa.
-   * 
+   *
    * @param dia dia do ano.
    * @param mes numero do mês do ano.
    * @param ano ano que deseja validar.
@@ -148,7 +155,7 @@ public final class MatematicUtils {
 
   /**
    * Valida se o dia está dentro do intervalo correto.
-   * 
+   *
    * @param dia que deseja verificar se o está correto.
    */
   private static void verificaDia(final int dia) {
@@ -161,7 +168,7 @@ public final class MatematicUtils {
 
   /**
    * Valida se o mês está dentro do intervalo correto do calendario gregoriano.
-   * 
+   *
    * @param mes numero referente ao mês que deseja verificar a validade indo de 1(janeiro) a
    *        12(dezembro).
    */
@@ -175,7 +182,7 @@ public final class MatematicUtils {
 
   /**
    * Valida se o ano está abaixo do minimo necessário para a verificação do metodo.
-   * 
+   *
    * @param ano que será validado.
    */
   private static void verificaAno(final int ano) {
@@ -187,7 +194,7 @@ public final class MatematicUtils {
 
   /**
    * Gera o resto da divisão inteira.
-   * 
+   *
    * @param dividendo dividendo
    * @param divisor divisor
    * @throws IllegalArgumentException caso entrada esteja fora da faixa
@@ -213,7 +220,7 @@ public final class MatematicUtils {
 
   /**
    * Faz a soma dos primeiros naturais, de 1 até n.
-   * 
+   *
    * @param numero número máximo a ser calculado
    * @throws IllegalArgumentException caso entrada seja menor que 1
    * @return retorna a soma dos primeiros números até n
@@ -234,7 +241,7 @@ public final class MatematicUtils {
 
   /**
    * Algoritmo que faz o fatorial de um número n.
-   * 
+   *
    * @param numero variável que será calculado o fatorial
    * @throws IllegalArgumentException caso entrada seja menor que 1
    * @return retorna o fatorial calculado
@@ -258,7 +265,7 @@ public final class MatematicUtils {
 
   /**
    * Verifica o produto de dois inteiros utilizando soma.
-   * 
+   *
    * @param multiplicando variável multiplicando
    * @param multiplicador variável multiplicador
    * @throws IllegalArgumentException caso entradas sejam menores que zero
@@ -292,7 +299,7 @@ public final class MatematicUtils {
 
   /**
    * Verifica potencia utilizando somas.
-   * 
+   *
    * @param base base da potência
    * @param expoente expoente da potência
    * @throws IllegalArgumentException caso entradas sejam menores que 0
@@ -322,7 +329,7 @@ public final class MatematicUtils {
 
   /**
    * Verifica valor de Pi para um total de n termos.
-   * 
+   *
    * @param numero quantidade de termos
    * @throws IllegalArgumentException caso entrada seja menor que 1
    * @return retorna o valor calculado de pi
@@ -350,7 +357,7 @@ public final class MatematicUtils {
 
   /**
    * Calcula logaritmo elevado a n com precisão k.
-   * 
+   *
    * @param potencia variável de potência
    * @param precisao variável de precisão
    * @throws IllegalArgumentException caso n seja menor que 1 e k menor que 2
@@ -383,7 +390,7 @@ public final class MatematicUtils {
 
   /**
    * Calcula a razão áurea usando uma sequência.
-   * 
+   *
    * @param numeroA o primeiro termo da sequência
    * @param numeroB o segundo termo
    * @param precisao a precisão
@@ -419,7 +426,7 @@ public final class MatematicUtils {
 
   /**
    * Calcula um quadrado perfeito dado um n.
-   * 
+   *
    * @param numero número a ser calculado o quadrado perfeito
    * @throws IllegalArgumentException caso entrada seja menor que 1
    * @return o quadrado perfeito
@@ -442,7 +449,7 @@ public final class MatematicUtils {
 
   /**
    * Calcula raiz quadrada dada a base e o indice.
-   * 
+   *
    * @param base base da raiz quadrada
    * @param precisao precisao da raiz quadrada
    * @throws IllegalArgumentException caso entrada seja menor que 0
@@ -465,7 +472,7 @@ public final class MatematicUtils {
 
   /**
    * Calcula se um dado n é primo.
-   * 
+   *
    * @param numero número a ser calculado
    * @throws IllegalArgumentException caso entrada seja menor que 1
    * @return true caso entrada seja um número primo
@@ -490,7 +497,7 @@ public final class MatematicUtils {
 
   /**
    * Algoritmo que encontra números primos.
-   * 
+   *
    * @param array vetor de zeros com o tamanho do número a ser checado
    * @throws IllegalArgumentException caso o tamanho do vetor for menor ou igual a 1 ou vetor não
    *         estiver zerado
@@ -511,7 +518,7 @@ public final class MatematicUtils {
 
   /**
    * Realizao o calculo do crivo de erastotenes.
-   * 
+   *
    * @param array vetor de valores.
    * @param contador que será usado para iterar.
    * @param limite de iteracoes.
@@ -533,7 +540,7 @@ public final class MatematicUtils {
 
   /**
    * Verifica se o array foi informado com as posicoes zeradas.
-   * 
+   *
    * @param array a ser verificado.
    */
   private static void verificaArrayZerado(final int[] array) {
@@ -546,7 +553,7 @@ public final class MatematicUtils {
 
   /**
    * Verifica se o tamanho do array está válido.
-   * 
+   *
    * @param array a ser verificado.
    */
   private static void verificaTamanhoArray(final int[] array) {
@@ -558,7 +565,7 @@ public final class MatematicUtils {
 
   /**
    * Verifica se o array foi informado com valor nulo.
-   * 
+   *
    * @param array a ser verificado.
    */
   private static void verificaArrayNulo(final int[] array) {
@@ -569,7 +576,7 @@ public final class MatematicUtils {
 
   /**
    * Calcula o maior divisor comum entre a e b.
-   * 
+   *
    * @param numeroA número inteiro que será utilizado para o mdc
    * @param numeroB número inteiro que será utilizado para o mdc
    * @throws IllegalArgumentException caso b seja maior que a, ou b menor que 0
@@ -599,7 +606,7 @@ public final class MatematicUtils {
 
   /**
    * Calcula outra forma de achar o maior divisor comum entre a e b.
-   * 
+   *
    * @param numeroA número inteiro que será utilizado para o mdc
    * @param numeroB número inteiro que será utilizado para o mdc
    * @throws IllegalArgumentException caso b seja maior que a, ou b menor que 0
@@ -630,7 +637,7 @@ public final class MatematicUtils {
 
   /**
    * Regra de Horner para avaliação polinomial.
-   * 
+   *
    * @param numero variável para obter uma aproximação
    * @param tam tamanho do polinômio
    * @param array coeficientes do polinômio
@@ -657,7 +664,7 @@ public final class MatematicUtils {
 
   /**
    * Algoritmo que calcula o n-esimo número de Fibonacci.
-   * 
+   *
    * @param enesimoTermo variável a ser calculada
    * @throws IllegalArgumentException caso entrada seja menor que 0
    * @return o n-esimo número de Fibonacci
@@ -686,7 +693,7 @@ public final class MatematicUtils {
 
   /**
    * Função que transforma cpf de String para Vetor.
-   * 
+   *
    * @param d cpf como string
    * @return cpf como vetor
    */
@@ -701,7 +708,7 @@ public final class MatematicUtils {
 
   /**
    * Algoritmo que certifica se o CPF é válido.
-   * 
+   *
    * @param cpf CPF a ser verificado
    * @throws IllegalArgumentException caso entrada tenha mais ou menos que 11 dígitos
    * @return caso CPF seja verdadeiro retorna true
@@ -737,7 +744,7 @@ public final class MatematicUtils {
 
   /**
    * Algoritmo que certifica se o CPF é válido.
-   * 
+   *
    * @param cpf CPF a ser verificado
    * @throws IllegalArgumentException caso entrada tenha mais ou menos que 11 dígitos
    * @return caso CPF seja verdadeiro retorna true
