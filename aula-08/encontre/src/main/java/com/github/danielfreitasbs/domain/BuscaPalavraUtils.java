@@ -1,25 +1,25 @@
 package com.github.danielfreitasbs.domain;
 
 
+import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.*;
+import java.util.Locale;
 
 /**
  * Esta classe manupula arquivos de texto para encontrar uma palavra especifica no mesmo.
  * 
  * @author Daniel Freitas
  */
-public class BuscaPalavraUtils {
+public final class BuscaPalavraUtils {
 
   /**
-   * Controlador de acesso do construtor da classe
+   * Controlador de acesso do construtor da classe.
    */
   private BuscaPalavraUtils() {
 
@@ -28,31 +28,33 @@ public class BuscaPalavraUtils {
   /**
    * Lê as linhas do arquivo e retorna uma lista de string padronizada com as numero da linha,
    * numero da coluna e linha em que foi encontrada.
-   * 
+   *
    * @param nomeDoArquivo nome do arquivo a ser lido.
    * @param palavra palavra que deve ser encontrada no arquivo.
+   * @return lista de string com as linhas e colunas em formato padrao.
+   *
    * @throws IOException caso não seja possivel ler o arquivo.
    */
   private static List<String> buscaPalavra(final String nomeDoArquivo, final String palavra)
       throws IOException {
     final Charset utf8Format = Charset.forName("UTF-8");
 
-    Path arquivo = Paths.get(nomeDoArquivo);
+    final Path arquivo = Paths.get(nomeDoArquivo);
 
-    int linhaDaPalavraEncontrada = 0;
+    int linhaDaPalavra = 0;
 
     int coluna = 0;
-    List<String> linhasEncontradas = new ArrayList<String>();
+    final List<String> linhasEncontradas = new ArrayList<String>();
 
-    for (String linhaDoArquivo : Files.readAllLines(arquivo, utf8Format)) {
-      final String linhaDoArquivoMinuscula = linhaDoArquivo.toLowerCase();
+    for (final String linhaDoArquivo : Files.readAllLines(arquivo, utf8Format)) {
+      final String linhaMinuscula = linhaDoArquivo.toLowerCase(Locale.getDefault());
 
-      if (linhaDoArquivoMinuscula.contains(palavra.toLowerCase())) {
-        coluna = linhaDoArquivoMinuscula.indexOf(palavra.toLowerCase(), coluna);
-        linhaDaPalavraEncontrada++;
+      if (linhaMinuscula.contains(palavra.toLowerCase(Locale.getDefault()))) {
+        coluna = linhaMinuscula.indexOf(palavra.toLowerCase(Locale.getDefault()), coluna);
+        linhaDaPalavra++;
 
-        String linhaEncontrada =
-            padronizarStringRetorno(linhaDoArquivoMinuscula, coluna, linhaDaPalavraEncontrada);
+        final String linhaEncontrada =
+            padronizarStringRetorno(linhaMinuscula, coluna, linhaDaPalavra);
 
         linhasEncontradas.add(linhaEncontrada);
       }
@@ -62,28 +64,29 @@ public class BuscaPalavraUtils {
 
   /**
    * Realiza a padronização na linha de retorno com a formatação correta.
-   * 
+   *
    * @param linhaDoArquivo linha do arquivo onde foi encontrada a ocorrência da palavra.
    * @param coluna indice da linha onde a palavra foi encontrada.
    * @param linha numero da linha onde a palavra foi encontrada.
-   * 
+   *
    * @return linha com a formatação padronizada.
    */
-  private static String padronizarStringRetorno(String linhaDoArquivo, int coluna, int linha) {
-    String identificadorLinha = "L".concat(Integer.toString(linha));
-    String identificadorColuna = " C".concat(Integer.toString(coluna));
-    String linhaContendoPalavra = ": ".concat(linhaDoArquivo);
+  private static String padronizarStringRetorno(final String linhaDoArquivo, final int coluna,
+      final int linha) {
+    final String identLinha = "L".concat(Integer.toString(linha));
+    final String identColuna = " C".concat(Integer.toString(coluna));
+    final String identPalavra = ": ".concat(linhaDoArquivo);
 
-    return identificadorLinha + identificadorColuna + linhaContendoPalavra;
+    return identLinha + identColuna + identPalavra;
   }
 
   /**
    * Realiza a busca da palavra em todas as linhas do arquivo.
-   * 
+   *
    * @param nomeDoArquivo nome do arquivo de entrada.
    * @param palavraBuscada palavra que deseja ser encontrada.
    * @return String com palavras formatadas.
-   * 
+   *
    * @throws IOException caso aja algum erro de leitura do arquivo.
    */
   public static String encontrarPalavra(final String nomeDoArquivo, final String palavraBuscada)
@@ -91,35 +94,33 @@ public class BuscaPalavraUtils {
 
     validaParametros(nomeDoArquivo, palavraBuscada);
 
-    List<String> listaPalavrasEncontradas = buscaPalavra(nomeDoArquivo, palavraBuscada);
-    String palavrasEncontradas = "";
+    final List<String> palavrasMatch = buscaPalavra(nomeDoArquivo, palavraBuscada);
+    String linhasPalavras = "";
     final String encontradas = "Encontradas: ";
-    if (listaPalavrasEncontradas.isEmpty()) {
+    if (palavrasMatch.isEmpty()) {
       return encontradas.concat("0.");
     } else {
-      String quantidadeEncontradas = Integer.toString(listaPalavrasEncontradas.size());
+      final String qtdeMatches = Integer.toString(palavrasMatch.size());
 
-      palavrasEncontradas = encontradas.concat(quantidadeEncontradas).concat(".\n")
-          .concat(listaPalavrasEncontradas.get(0)).concat(".\n");
+      linhasPalavras = encontradas.concat(qtdeMatches).concat(".\n")
+          .concat(palavrasMatch.get(0)).concat(".\n");
 
-      for (String linha : listaPalavrasEncontradas) {
-        palavrasEncontradas.concat(linha).concat(".\n");
+      for (final String linha : palavrasMatch) {
+        linhasPalavras.concat(linha).concat(".\n");
       }
 
     }
 
-    return palavrasEncontradas;
+    return linhasPalavras;
   }
 
   /**
    * Verifica se os parametros obedecem os requisitos especificados.
-   * 
-   * @param nomeDoArquivo
-   * @param palavraBuscada
-   * @throws UnsupportedEncodingException
+   *
+   * @param nomeDoArquivo nome do arquivo que contem as frases.
+   * @param palavraBuscada palavra que deseja encontrar no arquivo.
    */
-  static void validaParametros(final String nomeDoArquivo, final String palavraBuscada)
-      throws UnsupportedEncodingException {
+  static void validaParametros(final String nomeDoArquivo, final String palavraBuscada) {
 
     if (nomeDoArquivo == null) {
       throw new IllegalArgumentException("Caminho de arquivo incorreto");

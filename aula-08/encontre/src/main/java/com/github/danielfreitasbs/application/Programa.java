@@ -9,7 +9,7 @@ import com.github.danielfreitasbs.domain.BuscaPalavraUtils;
  * @author danielfreitasbs
  *
  */
-public class Programa {
+public final class Programa {
 
   /**
    * Controlador de acesso da classe.
@@ -20,11 +20,11 @@ public class Programa {
 
   /**
    * Metodo main de execução do programa.
-   * 
+   *
    * @param args caminho do arquivo.
    * @throws IOException caso ocorra algum problema de leitura do arquivo.
    */
-  public static void main(String[] args) throws IOException {
+  public static void main(final String[] args) throws IOException {
     System.console().writer().println(BuscaPalavraUtils.encontrarPalavra(args[0], args[0]));
   }
 
