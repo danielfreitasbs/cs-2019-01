@@ -26,7 +26,7 @@ public class LeituraArquivoTest {
 	
 	@Test
 	public void arquivoVazio() {
-		assertThrows(IllegalArgumentException.class, () -> LeituraArquivo.lerArquivo(getFilename("temNadaAqui.txt")));
+		assertThrows(IllegalArgumentException.class, () -> LeituraArquivo.lerArquivo(getFilename("74657374616e646f.txt")));
 	}
 	
 	@Test

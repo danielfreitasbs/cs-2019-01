@@ -25,7 +25,7 @@ public final class LeituraArquivo {
 	 * Realiza a leitura de um arquivo e retorna o seu nome em notação Hexadecimal.
 	 * 
 	 * @param arquivo nome do arquivo.
-	 * @return
+	 * @return nome do arquivo em notação hexadecimal.
 	 * @throws FileNotFoundException Caso o arquivo não seja encontrado no
 	 *                               diretorio, é disparada a exceção.
 	 * @throws IOException           Caso ocorra algum erro na leitura do arquivo.

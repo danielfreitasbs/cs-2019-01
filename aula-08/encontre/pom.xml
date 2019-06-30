@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.com.danielfreitasbs</groupId>
-  <artifactId>encontre</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <description>Projeto referente ao sexto exercício das atividades propostas em aula-08, pela disciplina de construção de software - UFG</description>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.com.danielfreitasbs</groupId>
+	<artifactId>aula08-encontre</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<description>Projeto referente ao sexto exercício das atividades propostas em aula-08, pela disciplina de construção de software - UFG</description>
 
-    <url>https://github.com/danielfreitasbs/cs-2019-01</url>
+	<url>https://github.com/danielfreitasbs/cs-2019-01</url>
 
-    <inceptionYear>2019</inceptionYear>
+	<inceptionYear>2019</inceptionYear>
 
-    <licenses>
-        <license>
-            <name>Creative Commons Attribution 4.0 International (CC BY 4.0)
+	<licenses>
+		<license>
+			<name>Creative Commons Attribution 4.0 International (CC BY 4.0)
             </name>
-            <comments>A atribuição deve conter, explicitamente, a seguinte
+			<comments>A atribuição deve conter, explicitamente, a seguinte
                 linha:
                 Copyright (c) 2019. Daniel Freitas - Engenharia de Software - UFG
             </comments>
-            <url>https://creativecommons.org/licenses/by/4.0/</url>
-        </license>
-    </licenses>
+			<url>https://creativecommons.org/licenses/by/4.0/</url>
+		</license>
+	</licenses>
 
-    <developers>
-        <developer>
-            <id>danielfreitasbs</id>
-            <name>Daniel Italo Freitas de Jesus</name>
-            <email>daniel.italofreitas@gmail.com</email>
-            <organization>Particular</organization>
-            <organizationUrl>http://www.github.com/danielfreitasbs/cs-2019-01</organizationUrl>
-        </developer>
-    </developers>
+	<developers>
+		<developer>
+			<id>danielfreitasbs</id>
+			<name>Daniel Italo Freitas de Jesus</name>
+			<email>daniel.italofreitas@gmail.com</email>
+			<organization>Particular</organization>
+			<organizationUrl>http://www.github.com/danielfreitasbs/cs-2019-01</organizationUrl>
+		</developer>
+	</developers>
 
-    <scm>
-        <connection>scm:git:https://github.com/danielfreitasbs/cs-2019-01.git
+	<scm>
+		<connection>scm:git:https://github.com/danielfreitasbs/cs-2019-01.git
         </connection>
-        <developerConnection>scm:git:https://github.com/danielfreitasbs/cs-2019-01.git
+		<developerConnection>scm:git:https://github.com/danielfreitasbs/cs-2019-01.git
         </developerConnection>
-        <url>https://github.com/danielfreitasbs/cs-2019-01</url>
-    </scm>
+		<url>https://github.com/danielfreitasbs/cs-2019-01</url>
+	</scm>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
-    </parent>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.5.RELEASE</version>
+	</parent>
 
-    <properties>
-        <java.version>8</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.mainClass>
-        </project.mainClass>
+	<properties>
+		<java.version>8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.mainClass>com.github.danielfreitasbs.domain.BuscaPalavraUtils
+		</project.mainClass>
 
-        <tools.dir>${project.basedir}/tools</tools.dir>
+		<tools.dir>${project.basedir}/tools</tools.dir>
 		<pmd.plugin>3.12.0</pmd.plugin>
 		<pmd.version>6.15.0</pmd.version>
 		<checkstyle.plugin>3.1.0</checkstyle.plugin>
@@ -152,7 +152,7 @@
 		</pluginManagement>
 
 		<!-- Define o nome do arquivo a ser gerado (.jar é acrescentada) -->
-		<finalName>exercicio_ottoleggio</finalName>
+		<finalName>aula-08-encontre-danielfreitasbs</finalName>
 
 		<plugins>
 
@@ -237,24 +237,24 @@
 			</plugin>
 
 			<!-- surefire -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.0</version>
-				<!--<dependencies> -->
-				<!--<dependency> -->
-				<!--<groupId>org.junit.platform</groupId> -->
-				<!--<artifactId>junit-platform-surefire-provider -->
-				<!--</artifactId> -->
-				<!--<version>1.2.0</version> -->
-				<!--</dependency> -->
-				<!--<dependency> -->
-				<!--<groupId>com.tngtech.archunit</groupId> -->
-				<!--<artifactId>archunit-junit5-engine</artifactId> -->
-				<!--<version>0.9.1</version> -->
-				<!--</dependency> -->
-				<!--</dependencies> -->
-			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <!--<dependencies>-->
+                <!--<dependency>-->
+                <!--<groupId>org.junit.platform</groupId>-->
+                <!--<artifactId>junit-platform-surefire-provider-->
+                <!--</artifactId>-->
+                <!--<version>1.2.0</version>-->
+                <!--</dependency>-->
+                <!--<dependency>-->
+                <!--<groupId>com.tngtech.archunit</groupId>-->
+                <!--<artifactId>archunit-junit5-engine</artifactId>-->
+                <!--<version>0.9.1</version>-->
+                <!--</dependency>-->
+                <!--</dependencies>-->
+            </plugin>
 
 			<!-- javadoc:javadoc -->
 			<!-- target/site/apidocs/index.html -->
