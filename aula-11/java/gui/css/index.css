@@ -1,0 +1,22 @@
+body #containerGeral{
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+    align-items: center;
+}
+
+#containerDataFinal{
+    margin: 0 2rem 0 0;
+    padding: 2px;
+    border-width: 2px;
+    border-style: dashed;
+    border-color: rgba(53, 52, 52, 0.534);
+}
+
+#containerDataInicial{
+    padding: 2px;
+    margin: 0 2rem 0 0;
+    border-width: 2px;
+    border-color: rgba(53, 52, 52, 0.534);
+    border-style: dashed;
+}
