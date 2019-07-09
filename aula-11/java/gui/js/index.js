@@ -10,9 +10,13 @@
         }
     };
     
-    let dataAnoMesDia = document.getElementById("data").value;
-    let data = formataData(dataAnoMesDia);
-    xhttp.open("GET", PATH + data, true);
+    let dataAnoMesDiaInicial = document.getElementById("dataInicial").value;
+    let dataInicial = formataData(dataAnoMesDia);
+    
+    let dataAnoMesDiaFinal = document.getElementById("dataFinal").value;
+    let dataFinal = formataData(dataAnoMesDia);
+    
+    xhttp.open("GET", PATH + dataInicial + "&dataFinal=" + dataFinal, true);
     xhttp.send();
 }
 
