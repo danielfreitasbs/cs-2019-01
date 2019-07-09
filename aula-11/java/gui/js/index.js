@@ -10,20 +10,34 @@
         }
     };
     
-    let dataAnoMesDia = document.getElementById("data").value;
-    let data = formataData(dataAnoMesDia);
-    xhttp.open("GET", PATH + data, true);
+    let completePath = montarPath();
+    
+    xhttp.open("GET", completePath, true);
     xhttp.send();
 }
 
+/**
+* Realiza a montagem da URL completa com os parametros para repassar para o metodo GET da sessao.
+*/
+function montarPath(){
+    let dataAnoMesDiaInicial = document.getElementById("dataInicial").value;
+    let dataInicial = formataData(dataAnoMesDia);
+    
+    let dataAnoMesDiaFinal = document.getElementById("dataFinal").value;
+    let dataFinal = formataData(dataAnoMesDia);
+    
+    return PATH + dataInicial + "&dataFinal=" + dataFinal;
+}
 
+/**
+* Realiza atribuição de data corrente aos atributos dataInicial e dataFinal.
+*/
 function dataCorrente() {
     document.getElementById("dataInicial").valueAsDate = new Date();
     document.getElementById("dataFinal").valueAsDate = new Date();
 }
 
 // Funções para integração (satisfazer contrato do servidor)
-
 function extraiDiaDaSemanaDaResposta(resposta) {
     return JSON.parse(resposta).diaDaSemana;
 }
