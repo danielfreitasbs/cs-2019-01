@@ -10,12 +10,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Classe de execução da API.
- * 
+ *
  * @author danielfreitasbs
  *
  */
 @SpringBootApplication
-public class Application {
+public final class Application {
 
   /**
    * Restritor de instanciação da classe.
@@ -26,10 +26,10 @@ public class Application {
 
   /**
    * Metodo de execução principal da API.
-   * 
+   *
    * @param args parametros recebidos pela URL.
    */
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     SpringApplication.run(Application.class, args);
   }
 }

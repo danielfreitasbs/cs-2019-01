@@ -4,11 +4,11 @@ import java.util.Date;
 
 /**
  * Classe responsável por calculos matemáticos com datas.
- * 
+ *
  * @author danielfreitasbs
  *
  */
-public class DateMathUtils {
+public final class DateMathUtils {
 
   /**
    * Restrigindo construtor da classe.
@@ -19,7 +19,7 @@ public class DateMathUtils {
 
   /**
    * Realiza o calculo de diferença entre duas datas independente de qual é maior.
-   * 
+   *
    * @param dataInicial primeiro valor de data informado.
    * @param dataFinal segundo valor de data informado.
    * @return Inteiro com a diferença entre os dias.
