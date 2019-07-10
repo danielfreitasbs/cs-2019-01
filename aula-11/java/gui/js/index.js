@@ -1,6 +1,9 @@
  // Path para a requisição (URL)
  const PATH = "http://localhost:8080/ds?dataInicial=";
  
+ /**
+  * Função responsável por realizar o consumo da API de backend.
+  */
  function diferencaEntreDatas() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
