@@ -47,8 +47,8 @@ public final class DataMathUtilsController {
       @RequestParam(value = "dataFinal", defaultValue = "não fornecida")final String dataFinalString)
       throws ParseException {
 
-    DataValidationUtils.formatoDataValida(dataInicialString);
-    DataValidationUtils.formatoDataValida(dataFinalString);
+    //DataValidationUtils.formatoDataValida(dataInicialString);
+    //DataValidationUtils.formatoDataValida(dataFinalString);
 
     final Date dataInicio = DateFormatUtils.dateFromString(dataInicialString);
     final Date dataFinal = DateFormatUtils.dateFromString(dataFinalString);
