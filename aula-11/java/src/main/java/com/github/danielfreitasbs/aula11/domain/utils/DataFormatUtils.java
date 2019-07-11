@@ -11,12 +11,12 @@ import java.util.Locale;
  * @author danielfreitasbs
  *
  */
-public final class DateFormatUtils {
+public final class DataFormatUtils {
 
   /**
    * Restrição de instanciação.
    */
-  private DateFormatUtils() {
+  private DataFormatUtils() {
 
   }
 

@@ -1,6 +1,7 @@
 package com.github.danielfreitasbs.aula11.domain.utils;
 
 import java.util.Date;
+import com.github.danielfreitasbs.aula11.domain.validations.DataValidationUtils;
 
 /**
 * Classe responsável por calculos matemáticos com datas.
@@ -8,12 +9,12 @@ import java.util.Date;
 * @author danielfreitasbs
 *
 */
-public final class DateMathUtils {
+public final class DataMathUtils {
   
   /**
   * Restrigindo construtor da classe.
   */
-  private DateMathUtils() {
+  private DataMathUtils() {
     
   }
   
@@ -25,9 +26,12 @@ public final class DateMathUtils {
   * @return Inteiro com a diferença entre os dias.
   */
   public static int diferencaEntreDatas(final Date dataInicial, final Date dataFinal) {
+    DataValidationUtils.dataNula(dataInicial);
+    DataValidationUtils.dataNula(dataFinal);
     final long diferencaInMillis = Math.abs(dataInicial.getTime() - dataFinal.getTime());
     final String diferencaSemSinal = Long.toUnsignedString(diferencaInMillis);
-    return millisToDays(diferencaSemSinal);
+    System.out.println(diferencaInMillis);
+    return millisToIntDays(diferencaSemSinal);
   }
   
   /**
@@ -37,8 +41,12 @@ public final class DateMathUtils {
    * 
    * @return inteiro representando o dia.
    */
-  static int millisToDays(final String valor){
+  static int millisToIntDays(final String valor){
+    if(valor == null) {
+      throw new IllegalArgumentException("Valor para transformação em dias informado como nulo.");
+    }
     final int timeInMillis = Integer.parseInt(valor);
+    System.out.println(timeInMillis);
     final int daysBase = 1000*60*60*24;
     
     return (int) timeInMillis / daysBase;

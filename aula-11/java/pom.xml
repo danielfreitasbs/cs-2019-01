@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.github.kyriosdata</groupId>
+	<groupId>com.github.danielfreitasbs</groupId>
 	<artifactId>aula11</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0.1</version>
@@ -67,7 +67,7 @@
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.mainClass>
-			com.github.kyriosdata.exemplo.application.console.ProgramaCalendario
+			com.github.danielfreitasbs.aula11.domain.utils.DateMathUtils
 		</project.mainClass>
 
 		<tools.dir>${project.basedir}/tools</tools.dir>

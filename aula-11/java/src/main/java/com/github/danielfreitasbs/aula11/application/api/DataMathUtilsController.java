@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.github.danielfreitasbs.aula11.domain.utils.DateFormatUtils;
-import com.github.danielfreitasbs.aula11.domain.utils.DateMathUtils;
+import com.github.danielfreitasbs.aula11.domain.utils.DataFormatUtils;
+import com.github.danielfreitasbs.aula11.domain.utils.DataMathUtils;
 import com.github.danielfreitasbs.aula11.domain.validations.DataValidationUtils;
 
 /**
@@ -47,13 +47,13 @@ public final class DataMathUtilsController {
       @RequestParam(value = "dataFinal", defaultValue = "não fornecida")final String dataFinalString)
       throws ParseException {
 
-    //DataValidationUtils.formatoDataValida(dataInicialString);
-    //DataValidationUtils.formatoDataValida(dataFinalString);
+    DataValidationUtils.dataNula(dataInicialString);
+    DataValidationUtils.dataNula(dataFinalString);
 
-    final Date dataInicio = DateFormatUtils.dateFromString(dataInicialString);
-    final Date dataFinal = DateFormatUtils.dateFromString(dataFinalString);
+    final Date dataInicio = DataFormatUtils.dateFromString(dataInicialString);
+    final Date dataFinal = DataFormatUtils.dateFromString(dataFinalString);
 
-    return DateMathUtils.diferencaEntreDatas(dataInicio, dataFinal);
+    return DataMathUtils.diferencaEntreDatas(dataInicio, dataFinal);
   }
 
 }
