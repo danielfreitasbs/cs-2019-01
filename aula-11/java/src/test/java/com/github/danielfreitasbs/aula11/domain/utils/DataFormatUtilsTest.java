@@ -18,7 +18,7 @@ public class DataFormatUtilsTest {
 
   @Test
   public void valorNulo() {
-    assertThrows(ParseException.class, () -> DataFormatUtils.dateFromString(null));
+    assertThrows(IllegalArgumentException.class, () -> DataFormatUtils.dateFromString(null));
   }
 
   @Test
