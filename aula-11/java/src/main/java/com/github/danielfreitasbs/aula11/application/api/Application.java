@@ -15,14 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public final class Application {
-
-  /**
-   * Restritor de instanciação da classe.
-   */
-  private Application() {
-
-  }
+public class Application {
 
   /**
    * Metodo de execução principal da API.

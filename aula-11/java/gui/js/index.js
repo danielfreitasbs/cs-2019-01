@@ -1,11 +1,14 @@
  // Path para a requisição (URL)
  const PATH = "http://localhost:8080/ds?dataInicial=";
  
+ /**
+  * Função responsável por realizar o consumo da API de backend.
+  */
  function diferencaEntreDatas() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            let dds = extraiDiaDaSemanaDaResposta(xhttp.responseText);
+            let dds = extraiDiaDaSemanaDaResposta(xhttp.responseText) + " dias.";
             document.getElementById("resultado").innerHTML = dds;
         }
     };
@@ -21,10 +24,10 @@
 */
 function montarPath(){
     let dataAnoMesDiaInicial = document.getElementById("dataInicial").value;
-    let dataInicial = formataData(dataAnoMesDia);
+    let dataInicial = formataData(dataAnoMesDiaInicial);
     
     let dataAnoMesDiaFinal = document.getElementById("dataFinal").value;
-    let dataFinal = formataData(dataAnoMesDia);
+    let dataFinal = formataData(dataAnoMesDiaFinal);
     
     return PATH + dataInicial + "&dataFinal=" + dataFinal;
 }
@@ -39,7 +42,7 @@ function dataCorrente() {
 
 // Funções para integração (satisfazer contrato do servidor)
 function extraiDiaDaSemanaDaResposta(resposta) {
-    return JSON.parse(resposta).diaDaSemana;
+    return JSON.parse(resposta);
 }
 
 // Dia ou mês deve possuir dois dígitos
