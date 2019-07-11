@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import com.github.danielfreitasbs.aula11.domain.validations.DataValidationUtils;
 
 /**
  * Classe realiza operações de transformação para o tipo Date.
@@ -28,6 +29,8 @@ public final class DataFormatUtils {
    * @throws ParseException caso de algum problema com a transformação.
    */
   public static Date dateFromString(final String data) throws ParseException {
+    DataValidationUtils.dataNula(data);
+    
     final String padrao = "dd-MM-yyyy";
     final SimpleDateFormat dataFormatada = new SimpleDateFormat(padrao, Locale.ENGLISH);
 
