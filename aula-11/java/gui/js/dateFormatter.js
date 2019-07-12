@@ -1,4 +1,9 @@
 /**
+ * arquivo de funcoes de validacao.
+ */
+const validador = require("../js/validacoes");
+
+/**
 * Realiza a formatação do dia ou mês para que tenham 2 digitos, através de uma concatenação de string e calculo de substring.
 * 
 * @param {string} valorDiaMes referente ao dia ou mês repassado para a função.
@@ -6,6 +11,8 @@
 * @returns {string} dia ou mês em formato padrão dd ou MM, respectivamente.
 */
 function formataDiaOuMes(valorDiaMes) {
+    validador.validacao(valorDiaMes);
+
     return ("00" + valorDiaMes).substr(-2, 2);
 }
 
@@ -17,6 +24,7 @@ function formataDiaOuMes(valorDiaMes) {
 * @returns {string} ano em formato padrão de quatro digitos YYYY.
 */
 function formataAno(ano) {
+    validador.validacao(ano);
     return ("0000" + ano).substr(-4,4);
 }
 
@@ -28,6 +36,8 @@ function formataAno(ano) {
 * @returns {string} data formatada para o padrão dd-MM-yyyy.
 */
 function formataData(data) {
+    validador.validacao(valorDiaMes);
+    
     let [a, m, d] = data.split("-");
     
     let dia = formataDiaOuMes(d);

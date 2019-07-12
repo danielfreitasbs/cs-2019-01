@@ -3,6 +3,11 @@
 */
 const formatadorData = require("../js/dateFormatter");
 
+/**
+ * arquivo de funcoes de validacao.
+ */
+const validador = require("../js/validacoes");
+
 // Path para a requisição (URL)
 const PATH = "http://localhost:8080/ds?dataInicial=";
 
@@ -36,6 +41,9 @@ function diferencaEntreDatas() {
 * @returns caminho da API de consumo com parametros inseridos.
 */
 function montarPath(dataAnoMesDiaInicial, dataAnoMesDiaFinal){
+    validador.validacao(dataAnoMesDiaInicial);
+    validador.validacao(dataAnoMesDiaFinal);
+    
     let dataInicial = formatadorData.dataFormatter.formataData(dataAnoMesDiaInicial);
     let dataFinal = formatadorData.dataFormatter.formataData(dataAnoMesDiaFinal);
     
@@ -58,6 +66,8 @@ function dataCorrente() {
 * @returns {string} resultado do valor de objeto diferenca extraido do JSON de resposta da API.
 */
 function formataRespostaPadrao(resposta) {
+    validador.validacao(resposta);
+    
     return resposta + " dias.";
 }
 

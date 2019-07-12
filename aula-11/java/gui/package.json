@@ -1,5 +1,5 @@
 {
-  "name": "projeto-exemplo",
+  "name": "projeto-api-rest",
   "version": "0.0.1",
   "scripts": {
     "test": "jest",
@@ -9,13 +9,13 @@
   },
   "devDependencies": {
     "eslint": "^5.16.0",
-    "jest": "^24.5.0",
+    "jest": "^24.6.0",
     "jsdoc": "^3.5.5"
   },
-  "description": "Projeto mínimo para exemplo apenas",
+  "description": "Projeto referente ao exercicio da aula-11 da disciplica de construção de software do INF-UFG",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyriosdata/exemplo.git"
+    "url": "git+https://github.com/danielfreitasbs/cs-2019-01.git"
   },
   "license": "ISC"
 }
