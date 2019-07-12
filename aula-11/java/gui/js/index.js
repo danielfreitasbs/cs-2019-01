@@ -1,67 +1,67 @@
- // Path para a requisição (URL)
- const PATH = "http://localhost:8080/ds?dataInicial=";
- 
- /**
-  * Função responsável por realizar o consumo da API de backend.
-  */
- function diferencaEntreDatas() {
+/**
+* arquivo de funções de formatação de data em JS.
+*/
+const formatadorData = require("../js/dateFormatter");
+
+// Path para a requisição (URL)
+const PATH = "http://localhost:8080/ds?dataInicial=";
+
+/**
+* Realiza a requisição da API através do caminho informado em PATH.
+*/
+function diferencaEntreDatas() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            let dds = extraiDiaDaSemanaDaResposta(xhttp.responseText) + " dias.";
-            document.getElementById("resultado").innerHTML = dds;
+            let diferencaDias = formataRespostaPadrao(xhttp.responseText);
+            document.getElementById("resultado").innerHTML = diferencaDias;
         }
     };
     
-    let completePath = montarPath();
+    let dataAnoMesDiaInicial = document.getElementById("dataInicial").value;
+    let dataAnoMesDiaFinal = document.getElementById("dataFinal").value;
+    
+    let completePath = montarPath(dataAnoMesDiaInicial, dataAnoMesDiaFinal);
     
     xhttp.open("GET", completePath, true);
     xhttp.send();
 }
 
 /**
-* Realiza a montagem da URL completa com os parametros para repassar para o metodo GET da sessao.
+* Realiza a montagem da URL/caminho completa com os parametros para repassar para o metodo GET da sessao.
+* 
+* @param {string} dataAnoMesDiaInicial data em formato yyyy-MM-dd que será formatada e concatenada ao retorno.
+* @param {string} dataAnoMesDiaFinal data em formato yyyy-MM-dd que será formatada e concatenada ao retorno.
+*
+* @returns caminho da API de consumo com parametros inseridos.
 */
-function montarPath(){
-    let dataAnoMesDiaInicial = document.getElementById("dataInicial").value;
-    let dataInicial = formataData(dataAnoMesDiaInicial);
-    
-    let dataAnoMesDiaFinal = document.getElementById("dataFinal").value;
-    let dataFinal = formataData(dataAnoMesDiaFinal);
+function montarPath(dataAnoMesDiaInicial, dataAnoMesDiaFinal){
+    let dataInicial = formatadorData.dataFormatter.formataData(dataAnoMesDiaInicial);
+    let dataFinal = formatadorData.dataFormatter.formataData(dataAnoMesDiaFinal);
     
     return PATH + dataInicial + "&dataFinal=" + dataFinal;
 }
 
 /**
-* Realiza atribuição de data corrente aos atributos dataInicial e dataFinal.
+* Seta a data atual do sistema nas tags input dataInicial e dataFinal da pagina principal(index.html).
 */
 function dataCorrente() {
     document.getElementById("dataInicial").valueAsDate = new Date();
     document.getElementById("dataFinal").valueAsDate = new Date();
 }
 
-// Funções para integração (satisfazer contrato do servidor)
-function extraiDiaDaSemanaDaResposta(resposta) {
-    return JSON.parse(resposta);
+/**
+* Função que realiza a leitura da resposta em JSON e transforma em String.
+* 
+* @param {string} resposta da API em formato de contrato JSON.
+* 
+* @returns {string} resultado do valor de objeto diferenca extraido do JSON de resposta da API.
+*/
+function formataRespostaPadrao(resposta) {
+    return resposta + " dias.";
 }
 
-// Dia ou mês deve possuir dois dígitos
-function formataDiaOuMes(n) {
-    return ("00" + n).substr(-2, 2);
-}
-
-// Ano deve possuir quatro dígitos
-function formataAno(n) {
-    return ("0000" + n).substr(-4,4);
-}
-
-// ENTRADA: ano-mes-dia SAIDA: dd-mm-yyyy
-function formataData(data) {
-    let [a, m, d] = data.split("-");
-    
-    let dia = formataDiaOuMes(d);
-    let mes = formataDiaOuMes(m);
-    let ano = formataAno(a);
-    
-    return `${d}-${m}-${a}`;
-}
+/**
+* Foi definido o nome deste export devido essa classe abrir conexão e imprimir resposta na tela.
+*/
+module.exports = {apiConsumer:this.apiConsumer, formataRespostaPadrao, montarPath};
