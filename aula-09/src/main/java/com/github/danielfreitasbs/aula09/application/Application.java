@@ -1,4 +1,4 @@
-package com.github.danielfreitas.aula09.application;
+package com.github.danielfreitasbs.aula09.application;
 
 public class Application {
 
