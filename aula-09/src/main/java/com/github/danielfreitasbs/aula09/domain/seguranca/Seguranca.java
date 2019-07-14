@@ -1,8 +1,9 @@
-package com.github.danielfreitasbs.aula09.domain.entidade.seguranca;
+package com.github.danielfreitasbs.aula09.domain.seguranca;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import com.github.danielfreitasbs.aula09.domain.logger.Log;
 
 /**
  * Responsável pelo hashing de 256bits.
@@ -21,9 +22,11 @@ public final class Seguranca {
 
   }
 
-  public static byte[] strHashing(final byte[] hash) throws NoSuchAlgorithmException {
+  public static String strHashing(final byte[] hash) throws NoSuchAlgorithmException {
+    Log.info("Iniciando hashing de nome do arquivo");
     MessageDigest digest = MessageDigest.getInstance(SHA256);
     byte[] encondedHash = digest.digest(hash);
-    return encondedHash;
+    Log.info("Finalizando hashing de nome do arquivo");
+    return encondedHash.toString();
   }
 }
