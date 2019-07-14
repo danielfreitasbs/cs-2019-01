@@ -281,7 +281,7 @@
 				<configuration>
 					<show>public</show>
 					<additionalOptions>
-
+						<additionalOption>-html5</additionalOption>
 					</additionalOptions>
 				</configuration>
 			</plugin>
@@ -892,7 +892,7 @@
 						<configuration>
 							<show>public</show>
 							<additionalOptions>
-
+								<additionalOption>-html5</additionalOption>
 							</additionalOptions>
 						</configuration>
 						<executions>
