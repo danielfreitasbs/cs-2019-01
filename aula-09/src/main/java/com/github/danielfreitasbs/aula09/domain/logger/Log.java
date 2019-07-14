@@ -8,7 +8,7 @@ import java.util.logging.Logger;
  * @author danielfreitasbs
  *
  */
-public class Log {
+public final class Log {
 
   /**
    * Restritor de instanciação da classe.
@@ -16,9 +16,14 @@ public class Log {
   private Log() {
 
   }
-  
+
+  /**
+   * Realiza a impressão de uma ação do sistema com severidade de informação.
+   *
+   * @param acao String de ação definida na chama da função. Pode variar de chamada para chamada.
+   */
   public static void info(final String acao) {
-    Logger logger = Logger.getLogger("DomainLogger");
+    final Logger logger = Logger.getLogger("DomainLogger");
     logger.info(acao);
   }
 }

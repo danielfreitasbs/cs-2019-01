@@ -1,5 +1,6 @@
 package com.github.danielfreitasbs.aula09.application;
 
+import java.io.IOException;
 import com.github.danielfreitasbs.aula09.controller.ConversaoUseCase;
 import com.github.danielfreitasbs.aula09.domain.logger.Log;
 
@@ -9,20 +10,28 @@ import com.github.danielfreitasbs.aula09.domain.logger.Log;
  * @author danielfreitasbs
  *
  */
-public class Application {
+public final class Application {
 
   /**
-   * Metodo princial.
-   * 
+   * Restritor de instanciação.
+   */
+  private Application() {
+
+  }
+
+  /**
+   * Metodo principal.
+   *
    * @param args argumentos de execução do programa.
    */
-  public static void main(String[] args) {
-    try {
-      ConversaoUseCase.iniciarMonitoramento();
-    } catch (Exception e) {
-      System.exit(1);
-      Log.info("Programa finalizado.");
-    }
+  public static void main(final String[] args) {
+      try {
+        ConversaoUseCase.iniciarMonitoramento();
+      } catch (IOException | InterruptedException e) {
+        e.printStackTrace();      
+        System.exit(1);
+        Log.info("Programa finalizado.");
+      }
   }
 
 }

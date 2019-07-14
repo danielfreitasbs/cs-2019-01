@@ -3,51 +3,88 @@ package com.github.danielfreitasbs.aula09.domain.entidade;
 import java.util.List;
 
 /**
- * 
+ * Classe representante de uma Nota Fiscal.
+ *
  * @author danielfreitasbs
  *
  */
 public class NotaFiscal {
+
+  /**
+   * Data de emissao da nota fiscal.
+   */
   private String data;
+
+  /**
+   * Valor total da nota fiscal.
+   */
   private double total;
+
+  /**
+   * Lista de itens contidos em uma fiscal.
+   */
   private List<ItemNotaFiscal> itens;
 
-  public NotaFiscal(String data, double total, List<ItemNotaFiscal> itens) {
+  /**
+   * Construtor com parametros.
+   * 
+   * @param data data da nota fiscal.
+   * @param total valor total da nota.
+   * @param itens da nota fiscal.
+   */
+  public NotaFiscal(final String data, final double total, final List<ItemNotaFiscal> itens) {
     super();
     this.data = data;
     this.total = total;
     this.itens = itens;
   }
 
+  /**
+   * @return the data
+   */
   public String getData() {
     return data;
   }
 
-  public void setData(String data) {
+  /**
+   * @param data the data to set
+   */
+  public void setData(final String data) {
     this.data = data;
   }
 
+  /**
+   * @return the total
+   */
   public double getTotal() {
     return total;
   }
 
-  public void setTotal(double total) {
+  /**
+   * @param total the total to set
+   */
+  public void setTotal(final double total) {
     this.total = total;
   }
 
+  /**
+   * @return the itens
+   */
   public List<ItemNotaFiscal> getItens() {
     return itens;
   }
 
-  public void setItens(List<ItemNotaFiscal> itens) {
+  /**
+   * @param itens the itens to set
+   */
+  public void setItens(final List<ItemNotaFiscal> itens) {
     this.itens = itens;
   }
 
   /**
    * Realiza a conversao da data formato dd/MM/yyyy do tipo String, para o formato yyyyMMaa em tipo
    * inteiro.
-   * 
-   * @param data em formato dd/MM/yyyy que será convertida e transformada.
+   *
    * @return inteiro no padrão yyyyMMdd;
    */
   public int getDataAsInt() {
