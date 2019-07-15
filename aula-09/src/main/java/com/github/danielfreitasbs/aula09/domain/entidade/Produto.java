@@ -1,6 +1,7 @@
 package com.github.danielfreitasbs.aula09.domain.entidade;
 
 import com.github.danielfreitasbs.aula09.domain.entidade.converters.FromStringToASCII;
+import com.github.danielfreitasbs.aula09.validation.StringValidations;
 
 /**
  * Classe representante do modelo de entidade Produto.
@@ -74,6 +75,7 @@ public class Produto {
    * @return array de bytes contendo descricao do Produto.
    */
   public byte[] getDescricaoAsByteArray() {
+    StringValidations.generalValidation(this.getDescricao());
     final int sizeArray = 80;
     byte[] toByteArray = new byte[sizeArray];
     final int[] inAsciiIntArray = FromStringToASCII.toASCIISized(this.descricao);

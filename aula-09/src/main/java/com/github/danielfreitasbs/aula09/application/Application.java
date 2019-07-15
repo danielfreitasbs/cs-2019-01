@@ -1,7 +1,7 @@
 package com.github.danielfreitasbs.aula09.application;
 
 import java.io.IOException;
-import com.github.danielfreitasbs.aula09.controller.ConversaoUseCase;
+import com.github.danielfreitasbs.aula09.controller.ConversaoUseCaseTest;
 import com.github.danielfreitasbs.aula09.domain.logger.Log;
 
 /**
@@ -26,7 +26,7 @@ public final class Application {
    */
   public static void main(final String[] args) {
       try {
-        ConversaoUseCase.iniciarMonitoramento();
+        ConversaoUseCaseTest.iniciarMonitoramento();
       } catch (IOException | InterruptedException e) {
         e.printStackTrace();      
         System.exit(1);

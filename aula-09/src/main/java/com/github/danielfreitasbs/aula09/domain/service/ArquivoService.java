@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import org.json.simple.parser.ParseException;
-import com.github.danielfreitasbs.aula09.controller.ConversaoUseCase;
+import com.github.danielfreitasbs.aula09.controller.ConversaoUseCaseTest;
 import com.github.danielfreitasbs.aula09.domain.entidade.NotaFiscal;
 import com.github.danielfreitasbs.aula09.domain.entidade.converters.FromJsonToNotaFiscal;
 import com.github.danielfreitasbs.aula09.domain.entidade.converters.FromNotaFiscalToBinario;
@@ -73,7 +73,7 @@ public final class ArquivoService {
     final String nomeArquivo = Seguranca.strHashing(fileInByte);
     final ByteArrayOutputStream baos = createZipFileInMemory(fileInByte, nomeArquivo);
     Log.info("Inicializando escrita do arquivo em disco");
-    final Path fullFilePath = Paths.get(ConversaoUseCase.getFullPathDatFiles(nomeArquivo));
+    final Path fullFilePath = Paths.get(ConversaoUseCaseTest.getFullPathDatFiles(nomeArquivo));
     Files.write(fullFilePath, baos.toByteArray());
     Log.info("Finalizada escrita do arquivo em disco");
   }
@@ -113,8 +113,8 @@ public final class ArquivoService {
   public static void moverArquivo(final String fullFilePath) {
     final File file = new File(fullFilePath);
     Log.info("Movendo arquivo do diretorio: " + fullFilePath + " para o diretorio: "
-        + ConversaoUseCase.getFullPathErrorFiles());
-    file.renameTo(new File(ConversaoUseCase.getFullPathErrorFiles() + file.getName()));
+        + ConversaoUseCaseTest.getFullPathErrorFiles());
+    file.renameTo(new File(ConversaoUseCaseTest.getFullPathErrorFiles() + file.getName()));
     Log.info("Arquivo movido com sucesso.");
   }
 
@@ -142,7 +142,7 @@ public final class ArquivoService {
    * @throws FileNotFoundException caso não encontre o arquivo em disco.
    */
   public static void monitorar(final Object jsonFile) throws FileNotFoundException {
-    final String fullFilePath = ConversaoUseCase.getFullPathJsonFiles() + jsonFile;
+    final String fullFilePath = ConversaoUseCaseTest.getFullPathJsonFiles() + jsonFile;
     try {
       final String conteudoArquivo = ArquivoService.getConteudoAsString(fullFilePath);
       final NotaFiscal notaFiscal = FromJsonToNotaFiscal.toNotaFiscal(conteudoArquivo);

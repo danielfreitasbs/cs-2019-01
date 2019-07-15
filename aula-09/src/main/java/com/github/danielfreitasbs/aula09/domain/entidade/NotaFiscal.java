@@ -1,6 +1,8 @@
 package com.github.danielfreitasbs.aula09.domain.entidade;
 
 import java.util.List;
+import com.github.danielfreitasbs.aula09.validation.DateValidation;
+import com.github.danielfreitasbs.aula09.validation.StringValidations;
 
 /**
  * Classe representante de uma Nota Fiscal.
@@ -88,6 +90,8 @@ public class NotaFiscal {
    * @return inteiro no padrão yyyyMMdd;
    */
   public int getDataAsInt() {
+    DateValidation.generalValidate(this.getData());
+
     final String[] dataSplit = getData().split("/");
     final StringBuilder dataFormatoStrBld = new StringBuilder();
     dataFormatoStrBld.append(dataSplit[2]).append(dataSplit[1]).append(dataSplit[0]);
