@@ -11,6 +11,7 @@ import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import com.github.danielfreitasbs.aula09.domain.logger.Log;
 import com.github.danielfreitasbs.aula09.domain.service.ArquivoService;
+import com.github.danielfreitasbs.aula09.validation.StringValidations;
 
 /**
  * Classe responsável pelo monitoramento do diretório de entrada do arquivo, instanciação de objetos
@@ -57,6 +58,8 @@ public final class ConversaoUseCase {
    * @return String contendo o caminho completo do arquivo.
    */
   public static String getFullPathDatFiles(final String fileName) {
+    StringValidations.generalValidation(fileName);
+    
     final StringBuilder fullFilePath = new StringBuilder();
     fullFilePath.append(ENVIROMENT_VAR).append(DAT_DIR).append(File.separator).append(fileName)
         .append(".dat");
@@ -100,7 +103,7 @@ public final class ConversaoUseCase {
    */
   public static void iniciarMonitoramento() throws IOException, InterruptedException {
     final WatchService watchService = FileSystems.getDefault().newWatchService();
-    final Path caminho = Paths.get(System.getProperty(ConversaoUseCase.getFullPathJsonFiles()));
+    final Path caminho = Paths.get(System.getProperty(ConversaoUseCaseTest.getFullPathJsonFiles()));
 
     // Monitora somente quando o arquivo é criado.
     caminho.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
